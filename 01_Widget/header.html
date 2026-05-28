@@ -1,3 +1,394 @@
-<div>
-  test
-</div>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Homepage CV</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#000;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    /* =========================
+       HERO SECTION
+    ========================== */
+
+    .hero{
+      position:relative;
+      width:100%;
+      min-height:100vh;
+      background:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920&auto=format&fit=crop')
+      center center/cover no-repeat;
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* Overlay scuro */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.72);
+      z-index:1;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header{
+      position:relative;
+      z-index:10;
+      width:100%;
+      padding:28px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:28px;
+      font-weight:300;
+    }
+
+    .logo-bars{
+      display:flex;
+      gap:4px;
+    }
+
+    .logo-bars span{
+      width:4px;
+      height:18px;
+      border-radius:20px;
+      display:block;
+    }
+
+    .logo-bars span:nth-child(1){
+      background:#ff0077;
+    }
+
+    .logo-bars span:nth-child(2){
+      background:#ff9900;
+    }
+
+    .logo-bars span:nth-child(3){
+      background:#00bfff;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:45px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#fff;
+      font-size:13px;
+      letter-spacing:1px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      opacity:0.7;
+    }
+
+    /* Hamburger */
+
+    .menu-btn{
+      width:28px;
+      height:22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      cursor:pointer;
+    }
+
+    .menu-btn span{
+      width:100%;
+      height:2px;
+      background:#fff;
+      border-radius:10px;
+    }
+
+    /* =========================
+       HERO CONTENT
+    ========================== */
+
+    .hero-content{
+      position:relative;
+      z-index:5;
+      flex:1;
+      display:flex;
+      align-items:center;
+      padding:0 80px;
+    }
+
+    .content{
+      max-width:500px;
+    }
+
+    .content h1{
+      font-size:72px;
+      font-weight:700;
+      margin-bottom:18px;
+      line-height:1;
+    }
+
+    .content p{
+      font-size:42px;
+      font-weight:300;
+      line-height:1.2;
+      color:#e7e7e7;
+    }
+
+    .cta{
+      margin-top:40px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px 38px;
+      background:#fff;
+      color:#000;
+      border-radius:40px;
+      text-decoration:none;
+      font-size:14px;
+      letter-spacing:1px;
+      transition:0.3s;
+    }
+
+    .cta:hover{
+      transform:translateY(-3px);
+      background:#ececec;
+    }
+
+    /* =========================
+       SIDE TEXT
+    ========================== */
+
+    .side-left,
+    .side-right{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%) rotate(-90deg);
+      z-index:5;
+      font-size:14px;
+      letter-spacing:3px;
+      color:#d6d6d6;
+    }
+
+    .side-left{
+      left:-30px;
+    }
+
+    .side-right{
+      right:-30px;
+    }
+
+    /* =========================
+       BOTTOM NAV
+    ========================== */
+
+    .bottom-slider{
+      position:absolute;
+      bottom:60px;
+      left:50%;
+      transform:translateX(-50%);
+      width:85%;
+      z-index:5;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:40px;
+    }
+
+    .line{
+      flex:1;
+      height:1px;
+      background:rgba(255,255,255,0.4);
+      position:relative;
+    }
+
+    .line::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:50%;
+      transform:translateY(-50%);
+      width:14px;
+      height:14px;
+      border:2px solid #fff;
+      border-radius:50%;
+      background:#000;
+    }
+
+    .middle-text{
+      font-size:14px;
+      letter-spacing:2px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media(max-width:992px){
+
+      header{
+        padding:25px 30px;
+      }
+
+      .hero-content{
+        padding:0 40px;
+      }
+
+      .content h1{
+        font-size:54px;
+      }
+
+      .content p{
+        font-size:30px;
+      }
+
+      nav{
+        gap:25px;
+      }
+    }
+
+    @media(max-width:768px){
+
+      nav a{
+        display:none;
+      }
+
+      .hero-content{
+        justify-content:center;
+        text-align:center;
+        padding:0 25px;
+      }
+
+      .content h1{
+        font-size:48px;
+      }
+
+      .content p{
+        font-size:24px;
+      }
+
+      .side-left,
+      .side-right{
+        display:none;
+      }
+
+      .bottom-slider{
+        width:92%;
+        bottom:40px;
+        gap:20px;
+      }
+    }
+
+    @media(max-width:480px){
+
+      header{
+        padding:22px 20px;
+      }
+
+      .logo{
+        font-size:22px;
+      }
+
+      .content h1{
+        font-size:42px;
+      }
+
+      .content p{
+        font-size:22px;
+      }
+
+      .cta{
+        width:100%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+
+    <!-- HEADER -->
+    <header>
+
+      <div class="logo">
+        <div class="logo-bars">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div>SiteLogo</div>
+      </div>
+
+      <nav>
+        <a href="#">About</a>
+        <a href="#">Experience</a>
+        <a href="#">Useful Link</a>
+
+        <div class="menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+
+    </header>
+
+    <!-- SIDE LABELS -->
+    <div class="side-left">ESPORTS</div>
+    <div class="side-right">EVENTS</div>
+
+    <!-- CONTENT -->
+    <div class="hero-content">
+
+      <div class="content">
+        <h1>BMW</h1>
+
+        <p>Sheer Driving Pleasure</p>
+
+        <a href="#" class="cta">
+          TAKE A TEST DRIVE
+        </a>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM SLIDER -->
+    <div class="bottom-slider">
+
+      <div class="line"></div>
+
+      <div class="middle-text">
+        MODELS
+      </div>
+
+      <div class="line"></div>
+
+    </div>
+
+  </section>
+
+</body>
+</html>
