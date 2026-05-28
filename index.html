@@ -13,7 +13,7 @@
 </div>
 
 <script>
-fetch('https://raw.githubusercontent.com/BaldoAB1995/AndreaBaldin/blob/main/01_Widget/header.html')
+fetch('https://raw.githubusercontent.com/BaldoAB1995/AndreaBaldin/main/01_Widget/header.html')
   .then(r => { if(!r.ok) throw new Error('Error while loading the header'); return r.text(); })
   .then(html => { document.getElementById('header-container').innerHTML = html; })
   .catch(err => console.error('Error:', err));
