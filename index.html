@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Andrea Baldin | AI Product Strategy &amp; Analytics</title>
-<meta name="description" content="Andrea Baldin — Product-minded technologist. Strategia di prodotto AI, integrazione GenAI/LLM nei workflow e data analytics. Oggi in Nestlé su Microsoft Copilot e Agent365." />
+<meta name="description" content="Andrea Baldin — product-minded technologist. AI product strategy, GenAI/LLM integration into workflows and data analytics. Currently at Nestlé working on Microsoft Copilot and Agent365." />
 <meta name="author" content="Andrea Baldin" />
 <meta property="og:title" content="Andrea Baldin | AI Product Strategy &amp; Analytics" />
-<meta property="og:description" content="5+ anni tra consulenza, delivery di piattaforme IT e strategia AI. 100+ use case GenAI dal concept alla produzione." />
+<meta property="og:description" content="5+ years across consulting, IT platform delivery and AI strategy. 100+ GenAI use cases from concept to production." />
 <meta property="og:type" content="profile" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,10 +92,24 @@ h3{font-size:1.08rem;font-weight:600;letter-spacing:-0.005em;}
   display:inline-flex;align-items:center;gap:9px;
 }
 .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block;}
+.header-right{display:flex;align-items:center;gap:20px;}
 .site-header nav ul{display:flex;flex-wrap:wrap;gap:22px;font-size:.9rem;font-weight:500;}
 .site-header nav a{color:var(--muted);transition:color .18s ease;}
 .site-header nav a:hover,.site-header nav a:focus-visible{color:var(--ink);}
-@media (max-width:640px){.site-header nav{display:none;}}
+@media (max-width:760px){.site-header nav{display:none;}}
+
+/* ---------- Language toggle ---------- */
+.lang-toggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--card);}
+.lang-toggle button{
+  padding:9px 14px;min-width:44px;
+  font-family:var(--font-display);font-size:.8rem;font-weight:600;line-height:1;
+  background:transparent;color:var(--muted);border:none;
+  transition:background .18s ease,color .18s ease;
+}
+.lang-toggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper);}
+.lang-toggle button:hover{color:var(--ink);}
+.lang-toggle button[aria-pressed="true"]:hover{color:var(--paper);}
+.lang-toggle button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
 
 /* ---------- Buttons ---------- */
 .btn{
@@ -166,6 +180,15 @@ main section:first-child{border-top:none;}
 .profile-meta{display:flex;flex-direction:column;gap:var(--sp-2);border-top:1px solid var(--line);padding-top:var(--sp-3);}
 .profile-meta dt{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
 .profile-meta dd{font-size:.9rem;font-weight:500;}
+
+/* ---------- Career Quest callout ---------- */
+.quest-callout{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--sp-3);
+  background:var(--accent-tint);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:var(--sp-4);margin-top:var(--sp-5);
+}
+.quest-callout .label{margin-bottom:8px;}
+.quest-callout-title{font-family:var(--font-display);font-size:clamp(1.05rem,2.2vw,1.25rem);font-weight:500;max-width:42ch;}
 
 /* ---------- Trusted strip ---------- */
 .strip{padding-block:var(--sp-5);}
@@ -250,7 +273,7 @@ main section:first-child{border-top:none;}
 .subhead{margin-bottom:var(--sp-3);color:var(--muted);font-weight:600;}
 .mini-list{display:flex;flex-direction:column;gap:var(--sp-2);}
 .mini-list li{font-size:.9rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 14px;padding-bottom:var(--sp-2);border-bottom:1px solid var(--line);}
-.mini-list li span{color:var(--ink);font-weight:600;min-width:130px;}
+.mini-list li .ml-when{color:var(--ink);font-weight:600;min-width:130px;}
 
 /* ---------- Education ---------- */
 .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2);}
@@ -360,23 +383,29 @@ footer p{color:#cfc9ba;max-width:36ch;margin-bottom:var(--sp-3);font-size:.95rem
 </head>
 <body>
 
-<a class="skip-link" href="#top">Salta al contenuto</a>
+<a class="skip-link" href="#top" data-en="Skip to content" data-it="Salta al contenuto">Skip to content</a>
 <div class="scroll-progress" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="header-inner">
     <a class="logo" href="#top"><span class="dot"></span> Andrea Baldin</a>
-    <nav aria-label="Sezioni del sito">
-      <ul>
-        <li><a href="#profilo">Profilo</a></li>
-        <li><a href="#competenze">Competenze</a></li>
-        <li><a href="#esperienza">Esperienza</a></li>
-        <li><a href="#formazione">Formazione</a></li>
-        <li><a href="#testimonianze">Testimonianze</a></li>
-        <li><a href="#contatti">Contatti</a></li>
-        <li><a href="gamification.html">Career Quest</a></li>
-      </ul>
-    </nav>
+    <div class="header-right">
+      <nav aria-label="Site sections" data-en-aria="Site sections" data-it-aria="Sezioni del sito">
+        <ul>
+          <li><a href="#profilo" data-en="Profile" data-it="Profilo">Profile</a></li>
+          <li><a href="#competenze" data-en="Skills" data-it="Competenze">Skills</a></li>
+          <li><a href="#esperienza" data-en="Experience" data-it="Esperienza">Experience</a></li>
+          <li><a href="#formazione" data-en="Education" data-it="Formazione">Education</a></li>
+          <li><a href="#testimonianze" data-en="Testimonials" data-it="Testimonianze">Testimonials</a></li>
+          <li><a href="#contatti" data-en="Contact" data-it="Contatti">Contact</a></li>
+          <li><a href="gamification.html">Career Quest</a></li>
+        </ul>
+      </nav>
+      <div class="lang-toggle" role="group" aria-label="Change language" data-en-aria="Change language" data-it-aria="Cambia lingua">
+        <button type="button" data-lang-btn="en" aria-pressed="true" aria-label="English">EN</button>
+        <button type="button" data-lang-btn="it" aria-pressed="false" aria-label="Italiano">IT</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -386,34 +415,42 @@ footer p{color:#cfc9ba;max-width:36ch;margin-bottom:var(--sp-3);font-size:.95rem
   <section id="hero" class="hero" aria-labelledby="hero-title">
     <div class="hero-grid">
       <div class="hero-text">
-        <p class="label" data-hero>AI Product Strategy &amp; Analytics</p>
+        <p class="label" data-hero data-en="AI Product Strategy &amp; Analytics" data-it="Strategia di Prodotto AI &amp; Analytics">AI Product Strategy &amp; Analytics</p>
         <h1 id="hero-title" data-hero>Andrea Baldin</h1>
-        <p class="tagline" data-hero>Trasformo l'AI generativa in prodotti che le persone usano davvero.</p>
-        <p class="bio" data-hero>Product-minded technologist con oltre 5 anni di esperienza tra consulenza, delivery di piattaforme IT e strategia AI. Oggi guido i prodotti Copilot e Agent365 in Nestlé: dalla discovery alla produzione, oltre 100 use case di AI generativa e assistenti conversazionali portati da concept a scala.</p>
+        <p class="tagline" data-hero data-en="I turn generative AI into products people actually use." data-it="Trasformo l'AI generativa in prodotti che le persone usano davvero.">I turn generative AI into products people actually use.</p>
+        <p class="bio" data-hero data-en="Product-minded technologist with 5+ years of experience across consulting, IT platform delivery and AI strategy. Today I lead the Copilot and Agent365 products at Nestlé: from discovery to production, 100+ generative-AI and conversational-assistant use cases taken from concept to scale." data-it="Product-minded technologist con oltre 5 anni di esperienza tra consulenza, delivery di piattaforme IT e strategia AI. Oggi guido i prodotti Copilot e Agent365 in Nestlé: dalla discovery alla produzione, oltre 100 use case di AI generativa e assistenti conversazionali portati da concept a scala.">Product-minded technologist with 5+ years of experience across consulting, IT platform delivery and AI strategy. Today I lead the Copilot and Agent365 products at Nestlé: from discovery to production, 100+ generative-AI and conversational-assistant use cases taken from concept to scale.</p>
         <div class="actions" data-hero>
-          <a class="btn" href="mailto:andrea.baldin95@gmail.com">Contattami <span class="circle" aria-hidden="true">&#8594;</span></a>
-          <a class="btn btn--ghost" href="#esperienza">Vedi il percorso</a>
+          <a class="btn" href="mailto:andrea.baldin95@gmail.com"><span data-en="Contact me" data-it="Contattami">Contact me</span> <span class="circle" aria-hidden="true">&#8594;</span></a>
+          <a class="btn btn--ghost" href="#esperienza" data-en="See the journey" data-it="Vedi il percorso">See the journey</a>
         </div>
         <dl class="quick-facts" data-hero>
-          <div><dt data-count="5" data-suffix="+">5+</dt><dd>Anni di esperienza</dd></div>
-          <div><dt data-count="100" data-suffix="+">100+</dt><dd>Use case GenAI in produzione</dd></div>
-          <div><dt data-count="8">8</dt><dd>Certificazioni &amp; premi</dd></div>
+          <div><dt data-count="5" data-suffix="+">5+</dt><dd data-en="Years of experience" data-it="Anni di esperienza">Years of experience</dd></div>
+          <div><dt data-count="100" data-suffix="+">100+</dt><dd data-en="GenAI use cases in production" data-it="Use case GenAI in produzione">GenAI use cases in production</dd></div>
+          <div><dt data-count="8">8</dt><dd data-en="Certifications &amp; awards" data-it="Certificazioni &amp; premi">Certifications &amp; awards</dd></div>
         </dl>
       </div>
-      <aside class="profile-card" data-hero data-parallax aria-label="In sintesi">
+      <aside class="profile-card" data-hero data-parallax aria-label="At a glance" data-en-aria="At a glance" data-it-aria="In sintesi">
         <div class="monogram" aria-hidden="true">AB</div>
         <p class="profile-name">Andrea Baldin</p>
         <p class="profile-role">Tech Expert — Conversation AI &amp; M365 Copilot</p>
         <dl class="profile-meta">
-          <div><dt>Azienda</dt><dd>Nestlé — Milano</dd></div>
-          <div><dt>Focus</dt><dd>Microsoft Copilot &amp; Agent365</dd></div>
-          <div><dt>Lingue</dt><dd>Inglese C1 · Spagnolo C1</dd></div>
+          <div><dt data-en="Company" data-it="Azienda">Company</dt><dd data-en="Nestlé — Milan" data-it="Nestlé — Milano">Nestlé — Milan</dd></div>
+          <div><dt data-en="Focus" data-it="Focus">Focus</dt><dd>Microsoft Copilot &amp; Agent365</dd></div>
+          <div><dt data-en="Languages" data-it="Lingue">Languages</dt><dd data-en="English C1 · Spanish C1" data-it="Inglese C1 · Spagnolo C1">English C1 · Spanish C1</dd></div>
         </dl>
       </aside>
     </div>
+
+    <aside class="quest-callout" data-reveal aria-label="Career Quest">
+      <div>
+        <p class="label" data-en="Interactive" data-it="Interattivo">Interactive</p>
+        <p class="quest-callout-title" data-en="Prefer to play? Explore my career as a game." data-it="Preferisci giocare? Esplora la mia carriera come un gioco.">Prefer to play? Explore my career as a game.</p>
+      </div>
+      <a class="btn" href="gamification.html"><span>Career Quest</span> <span class="circle" aria-hidden="true">&#8594;</span></a>
+    </aside>
   </section>
 
-  <section class="strip" aria-label="Aziende e istituzioni del percorso">
+  <section class="strip" aria-label="Companies and institutions in the journey" data-en-aria="Companies and institutions in the journey" data-it-aria="Aziende e istituzioni del percorso">
     <ul class="trusted" data-stagger>
       <li>Nestlé</li>
       <li>Accenture</li>
@@ -427,53 +464,53 @@ footer p{color:#cfc9ba;max-width:36ch;margin-bottom:var(--sp-3);font-size:.95rem
 
   <section id="profilo" aria-labelledby="profilo-title">
     <div class="section-head" data-reveal>
-      <p class="label">Profilo</p>
-      <h2 id="profilo-title">Prodotto, AI e dati al servizio di decisioni migliori</h2>
+      <p class="label" data-en="Profile" data-it="Profilo">Profile</p>
+      <h2 id="profilo-title" data-en="Product, AI and data in service of better decisions" data-it="Prodotto, AI e dati al servizio di decisioni migliori">Product, AI and data in service of better decisions</h2>
     </div>
     <div class="about-grid">
       <div class="about-lead" data-reveal>
-        <p>Integro capability di AI generativa e LLM in workflow reali, traduco concetti complessi, data-heavy e "agentici" in requisiti di prodotto chiari e uso i dati (Power BI, Excel, JavaScript, C++, VBA) per definire metriche e guidare le scelte.</p>
+        <p data-en="I integrate generative-AI and LLM capabilities into real workflows, translate complex, data-heavy and &quot;agentic&quot; concepts into clear product requirements, and use data (Power BI, Excel, JavaScript, C++, VBA) to define metrics and drive decisions." data-it="Integro capability di AI generativa e LLM in workflow reali, traduco concetti complessi, data-heavy e &quot;agentici&quot; in requisiti di prodotto chiari e uso i dati (Power BI, Excel, JavaScript, C++, VBA) per definire metriche e guidare le scelte.">I integrate generative-AI and LLM capabilities into real workflows, translate complex, data-heavy and "agentic" concepts into clear product requirements, and use data (Power BI, Excel, JavaScript, C++, VBA) to define metrics and drive decisions.</p>
       </div>
       <div class="about-body" data-stagger>
-        <p>In precedenza ho avuto l'ownership end-to-end delle iniziative di AI generativa e assistenti conversazionali in Nestlé: dalla discovery e definizione dei requisiti alla delivery cross-funzionale, all'adoption e alla comunicazione agli stakeholder, coprendo oltre 100 use case dal concept alla produzione.</p>
-        <p>Track record consolidato nel collaborare con team di engineering, data e business per lanciare e scalare soluzioni digitali in contesti veloci e matriciali, comunicando roadmap e impatto fino al C-level.</p>
+        <p data-en="Previously I held end-to-end ownership of generative-AI and conversational-assistant initiatives at Nestlé: from discovery and requirements definition to cross-functional delivery, adoption and stakeholder communication, covering 100+ use cases from concept to production." data-it="In precedenza ho avuto l'ownership end-to-end delle iniziative di AI generativa e assistenti conversazionali in Nestlé: dalla discovery e definizione dei requisiti alla delivery cross-funzionale, all'adoption e alla comunicazione agli stakeholder, coprendo oltre 100 use case dal concept alla produzione.">Previously I held end-to-end ownership of generative-AI and conversational-assistant initiatives at Nestlé: from discovery and requirements definition to cross-functional delivery, adoption and stakeholder communication, covering 100+ use cases from concept to production.</p>
+        <p data-en="Solid track record of working with engineering, data and business teams to launch and scale digital solutions in fast-paced, matrixed environments, communicating roadmap and impact up to C-level." data-it="Track record consolidato nel collaborare con team di engineering, data e business per lanciare e scalare soluzioni digitali in contesti veloci e matriciali, comunicando roadmap e impatto fino al C-level.">Solid track record of working with engineering, data and business teams to launch and scale digital solutions in fast-paced, matrixed environments, communicating roadmap and impact up to C-level.</p>
       </div>
     </div>
   </section>
 
   <section id="competenze" aria-labelledby="competenze-title">
     <div class="section-head" data-reveal>
-      <p class="label">Competenze</p>
-      <h2 id="competenze-title">Competenze chiave</h2>
+      <p class="label" data-en="Skills" data-it="Competenze">Skills</p>
+      <h2 id="competenze-title" data-en="Core skills" data-it="Competenze chiave">Core skills</h2>
     </div>
 
     <ul class="competency-grid" data-stagger>
-      <li><h3>GenAI / LLM Integration</h3><p>Capability generative integrate negli strumenti e nei processi di lavoro esistenti.</p></li>
-      <li><h3>Product Strategy &amp; Roadmapping</h3><p>Visione, prioritizzazione e roadmap per iniziative AI su larga scala.</p></li>
-      <li><h3>0-to-1 Delivery</h3><p>Dalla scoperta del problema al rilascio in produzione.</p></li>
-      <li><h3>Cross-functional Leadership</h3><p>Coordinamento di engineering, data e business in ambienti matriciali.</p></li>
-      <li><h3>Evaluation Frameworks &amp; Metrics</h3><p>Metriche di successo e valutazione di adoption e impatto.</p></li>
-      <li><h3>Stakeholder &amp; C-level Communication</h3><p>Roadmap e risultati raccontati in modo chiaro alla leadership.</p></li>
-      <li><h3>Data Analytics</h3><p>Power BI ed Excel per misurare, spiegare e decidere.</p></li>
+      <li><h3>GenAI / LLM Integration</h3><p data-en="Generative capabilities integrated into existing tools and work processes." data-it="Capability generative integrate negli strumenti e nei processi di lavoro esistenti.">Generative capabilities integrated into existing tools and work processes.</p></li>
+      <li><h3>Product Strategy &amp; Roadmapping</h3><p data-en="Vision, prioritisation and roadmap for large-scale AI initiatives." data-it="Visione, prioritizzazione e roadmap per iniziative AI su larga scala.">Vision, prioritisation and roadmap for large-scale AI initiatives.</p></li>
+      <li><h3>0-to-1 Delivery</h3><p data-en="From problem discovery to production release." data-it="Dalla scoperta del problema al rilascio in produzione.">From problem discovery to production release.</p></li>
+      <li><h3>Cross-functional Leadership</h3><p data-en="Coordinating engineering, data and business in matrixed environments." data-it="Coordinamento di engineering, data e business in ambienti matriciali.">Coordinating engineering, data and business in matrixed environments.</p></li>
+      <li><h3>Evaluation Frameworks &amp; Metrics</h3><p data-en="Success metrics and evaluation of adoption and impact." data-it="Metriche di successo e valutazione di adoption e impatto.">Success metrics and evaluation of adoption and impact.</p></li>
+      <li><h3>Stakeholder &amp; C-level Communication</h3><p data-en="Roadmap and results told clearly to leadership." data-it="Roadmap e risultati raccontati in modo chiaro alla leadership.">Roadmap and results told clearly to leadership.</p></li>
+      <li><h3>Data Analytics</h3><p data-en="Power BI and Excel to measure, explain and decide." data-it="Power BI ed Excel per misurare, spiegare e decidere.">Power BI and Excel to measure, explain and decide.</p></li>
     </ul>
 
     <div class="two-col">
       <div class="stats-card" data-reveal>
-        <h3>Numeri che raccontano il lavoro</h3>
+        <h3 data-en="Numbers that tell the work" data-it="Numeri che raccontano il lavoro">Numbers that tell the work</h3>
         <dl class="stats-grid" data-stagger>
-          <div><dt data-count="100" data-suffix="+">100+</dt><dd>Use case AI dal concept alla produzione</dd></div>
-          <div><dt data-count="50" data-suffix="+">50+</dt><dd>Storie end-to-end su piattaforme HR e ITSM</dd></div>
-          <div><dt data-count="150" data-suffix="k&euro;+">150k&euro;+</dt><dd>Valore progetti re-ingegnerizzati in Accenture</dd></div>
-          <div><dt data-count="75" data-suffix="+">75+</dt><dd>Processi migrati a ServiceNow</dd></div>
+          <div><dt data-count="100" data-suffix="+">100+</dt><dd data-en="AI use cases from concept to production" data-it="Use case AI dal concept alla produzione">AI use cases from concept to production</dd></div>
+          <div><dt data-count="50" data-suffix="+">50+</dt><dd data-en="End-to-end stories on HR and ITSM platforms" data-it="Storie end-to-end su piattaforme HR e ITSM">End-to-end stories on HR and ITSM platforms</dd></div>
+          <div><dt data-count="150" data-suffix="k&euro;+">150k&euro;+</dt><dd data-en="Value of projects re-engineered at Accenture" data-it="Valore progetti re-ingegnerizzati in Accenture">Value of projects re-engineered at Accenture</dd></div>
+          <div><dt data-count="75" data-suffix="+">75+</dt><dd data-en="Processes migrated to ServiceNow" data-it="Processi migrati a ServiceNow">Processes migrated to ServiceNow</dd></div>
         </dl>
       </div>
       <div class="method-card" data-reveal>
-        <h3>Un metodo di prodotto ripetibile</h3>
+        <h3 data-en="A repeatable product method" data-it="Un metodo di prodotto ripetibile">A repeatable product method</h3>
         <ol class="method" data-stagger>
-          <li>Discovery e definizione dei requisiti</li>
-          <li>Prioritizzazione e roadmap</li>
-          <li>Delivery cross-funzionale con engineering, data e business</li>
-          <li>Adoption, metriche e comunicazione agli stakeholder</li>
+          <li data-en="Discovery and requirements definition" data-it="Discovery e definizione dei requisiti">Discovery and requirements definition</li>
+          <li data-en="Prioritisation and roadmap" data-it="Prioritizzazione e roadmap">Prioritisation and roadmap</li>
+          <li data-en="Cross-functional delivery with engineering, data and business" data-it="Delivery cross-funzionale con engineering, data e business">Cross-functional delivery with engineering, data and business</li>
+          <li data-en="Adoption, metrics and stakeholder communication" data-it="Adoption, metriche e comunicazione agli stakeholder">Adoption, metrics and stakeholder communication</li>
         </ol>
       </div>
     </div>
@@ -497,139 +534,139 @@ footer p{color:#cfc9ba;max-width:36ch;margin-bottom:var(--sp-3);font-size:.95rem
 
   <section id="esperienza" aria-labelledby="esperienza-title">
     <div class="section-head" data-reveal>
-      <p class="label">Percorso professionale</p>
-      <h2 id="esperienza-title">Esperienza lavorativa</h2>
+      <p class="label" data-en="Career path" data-it="Percorso professionale">Career path</p>
+      <h2 id="esperienza-title" data-en="Work experience" data-it="Esperienza lavorativa">Work experience</h2>
     </div>
 
     <div class="timeline">
       <span class="timeline-progress" aria-hidden="true"></span>
 
       <article class="timeline-item" data-reveal>
-        <p class="when">Gen 2025 – Oggi</p>
+        <p class="when" data-en="Jan 2025 – Present" data-it="Gen 2025 – Oggi">Jan 2025 – Present</p>
         <div>
           <h3>Tech Expert — Conversation AI &amp; M365 Copilot</h3>
-          <p class="company">Nestlé — Milano · in precedenza Tech Expert — Artificial Intelligence</p>
+          <p class="company" data-en="Nestlé — Milan · previously Tech Expert — Artificial Intelligence" data-it="Nestlé — Milano · in precedenza Tech Expert — Artificial Intelligence">Nestlé — Milan · previously Tech Expert — Artificial Intelligence</p>
           <ul class="bullets">
-            <li>Ownership di Agent365 e Microsoft Copilot Chat: strategia di prodotto, roadmap e adoption a livello di organizzazione.</li>
-            <li>Ownership di strategia, roadmap e sviluppo end-to-end degli assistenti conversazionali AI, con oltre 100 use case dal concept (0&rarr;1) alla produzione.</li>
-            <li>Riferimento tecnico per lo stack Microsoft Conversational AI: design ed evoluzione delle esperienze conversazionali basate su tecnologie AI Microsoft.</li>
-            <li>Collaborazione cross-funzionale con engineering, data e business per definire requisiti e integrare capability GenAI/LLM nei workflow esistenti.</li>
-            <li>Definizione di metriche e reporting su adoption e impatto, con presentazioni a stakeholder interni ed esterni, incluso il C-level.</li>
+            <li data-en="Ownership of Agent365 and Microsoft Copilot Chat: product strategy, roadmap and adoption at organisation level." data-it="Ownership di Agent365 e Microsoft Copilot Chat: strategia di prodotto, roadmap e adoption a livello di organizzazione.">Ownership of Agent365 and Microsoft Copilot Chat: product strategy, roadmap and adoption at organisation level.</li>
+            <li data-en="Ownership of strategy, roadmap and end-to-end development of AI conversational assistants, with 100+ use cases from concept (0→1) to production." data-it="Ownership di strategia, roadmap e sviluppo end-to-end degli assistenti conversazionali AI, con oltre 100 use case dal concept (0→1) alla produzione.">Ownership of strategy, roadmap and end-to-end development of AI conversational assistants, with 100+ use cases from concept (0→1) to production.</li>
+            <li data-en="Technical reference for the Microsoft Conversational AI stack: design and evolution of conversational experiences built on Microsoft AI technologies." data-it="Riferimento tecnico per lo stack Microsoft Conversational AI: design ed evoluzione delle esperienze conversazionali basate su tecnologie AI Microsoft.">Technical reference for the Microsoft Conversational AI stack: design and evolution of conversational experiences built on Microsoft AI technologies.</li>
+            <li data-en="Cross-functional collaboration with engineering, data and business to define requirements and integrate GenAI/LLM capabilities into existing workflows." data-it="Collaborazione cross-funzionale con engineering, data e business per definire requisiti e integrare capability GenAI/LLM nei workflow esistenti.">Cross-functional collaboration with engineering, data and business to define requirements and integrate GenAI/LLM capabilities into existing workflows.</li>
+            <li data-en="Definition of metrics and reporting on adoption and impact, with presentations to internal and external stakeholders, including C-level." data-it="Definizione di metriche e reporting su adoption e impatto, con presentazioni a stakeholder interni ed esterni, incluso il C-level.">Definition of metrics and reporting on adoption and impact, with presentations to internal and external stakeholders, including C-level.</li>
           </ul>
         </div>
       </article>
 
       <article class="timeline-item" data-reveal>
-        <p class="when">Lug 2023 – Gen 2025</p>
+        <p class="when" data-en="Jul 2023 – Jan 2025" data-it="Lug 2023 – Gen 2025">Jul 2023 – Jan 2025</p>
         <div>
           <h3>IT ServiceNow Business Analyst</h3>
-          <p class="company">Nestlé — Milano</p>
+          <p class="company" data-en="Nestlé — Milan" data-it="Nestlé — Milano">Nestlé — Milan</p>
           <ul class="bullets">
-            <li>Definizione di obiettivi, milestone e delivery plan per iniziative di data analytics su piattaforme HR e ITSM, coprendo oltre 50 storie end-to-end.</li>
-            <li>Monitoraggio di avanzamento, tempi e standard qualitativi; linee guida di best practice che hanno migliorato contenuti di piattaforma e accuratezza del reporting.</li>
-            <li>Facilitazione della definizione della soluzione tecnica in ServiceNow, allineando requisiti di business e necessità di data &amp; analytics e gestendo il rischio in modo proattivo.</li>
-            <li>Allineamento degli stakeholder tramite dashboard Power BI e presentazioni executive per comunicare insight complessi in modo chiaro.</li>
+            <li data-en="Definition of objectives, milestones and delivery plans for data-analytics initiatives on HR and ITSM platforms, covering 50+ end-to-end stories." data-it="Definizione di obiettivi, milestone e delivery plan per iniziative di data analytics su piattaforme HR e ITSM, coprendo oltre 50 storie end-to-end.">Definition of objectives, milestones and delivery plans for data-analytics initiatives on HR and ITSM platforms, covering 50+ end-to-end stories.</li>
+            <li data-en="Monitoring of progress, timelines and quality standards; best-practice guidelines that improved platform content and reporting accuracy." data-it="Monitoraggio di avanzamento, tempi e standard qualitativi; linee guida di best practice che hanno migliorato contenuti di piattaforma e accuratezza del reporting.">Monitoring of progress, timelines and quality standards; best-practice guidelines that improved platform content and reporting accuracy.</li>
+            <li data-en="Facilitation of the technical solution definition in ServiceNow, aligning business requirements and data &amp; analytics needs and managing risk proactively." data-it="Facilitazione della definizione della soluzione tecnica in ServiceNow, allineando requisiti di business e necessità di data &amp; analytics e gestendo il rischio in modo proattivo.">Facilitation of the technical solution definition in ServiceNow, aligning business requirements and data &amp; analytics needs and managing risk proactively.</li>
+            <li data-en="Stakeholder alignment through Power BI dashboards and executive presentations to communicate complex insights clearly." data-it="Allineamento degli stakeholder tramite dashboard Power BI e presentazioni executive per comunicare insight complessi in modo chiaro.">Stakeholder alignment through Power BI dashboards and executive presentations to communicate complex insights clearly.</li>
           </ul>
         </div>
       </article>
 
       <article class="timeline-item" data-reveal>
-        <p class="when">Feb 2021 – Lug 2023</p>
+        <p class="when" data-en="Feb 2021 – Jul 2023" data-it="Feb 2021 – Lug 2023">Feb 2021 – Jul 2023</p>
         <div>
           <h3>Cloud Transformation &amp; Architecture Consultant</h3>
-          <p class="company">Accenture — Milano</p>
+          <p class="company" data-en="Accenture — Milan" data-it="Accenture — Milano">Accenture — Milan</p>
           <ul class="bullets">
-            <li>Raccolta e analisi dei requisiti cliente per evolvere una piattaforma di Project Management (CSM, ITSM, CMDB, App Engine), traducendo esigenze di business in requisiti tecnici.</li>
-            <li>Re-ingegnerizzazione di software legacy per la stima delle change request, con tecniche di data transformation e modeling su oltre 150k&euro; di valore progetti e più di 75 processi migrati a ServiceNow.</li>
-            <li>Analisi e visualizzazioni data-driven a supporto delle decisioni del cliente su investimenti in piattaforma e processi.</li>
+            <li data-en="Gathering and analysis of client requirements to evolve a Project Management platform (CSM, ITSM, CMDB, App Engine), translating business needs into technical requirements." data-it="Raccolta e analisi dei requisiti cliente per evolvere una piattaforma di Project Management (CSM, ITSM, CMDB, App Engine), traducendo esigenze di business in requisiti tecnici.">Gathering and analysis of client requirements to evolve a Project Management platform (CSM, ITSM, CMDB, App Engine), translating business needs into technical requirements.</li>
+            <li data-en="Re-engineering of legacy software for change-request estimation, using data-transformation and modelling techniques across 150k€+ of project value and more than 75 processes migrated to ServiceNow." data-it="Re-ingegnerizzazione di software legacy per la stima delle change request, con tecniche di data transformation e modeling su oltre 150k€ di valore progetti e più di 75 processi migrati a ServiceNow.">Re-engineering of legacy software for change-request estimation, using data-transformation and modelling techniques across 150k€+ of project value and more than 75 processes migrated to ServiceNow.</li>
+            <li data-en="Data-driven analysis and visualisations supporting client decisions on platform and process investments." data-it="Analisi e visualizzazioni data-driven a supporto delle decisioni del cliente su investimenti in piattaforma e processi.">Data-driven analysis and visualisations supporting client decisions on platform and process investments.</li>
           </ul>
         </div>
       </article>
 
       <article class="timeline-item" data-reveal>
-        <p class="when">Lug 2020 – Feb 2021</p>
+        <p class="when" data-en="Jul 2020 – Feb 2021" data-it="Lug 2020 – Feb 2021">Jul 2020 – Feb 2021</p>
         <div>
           <h3>Business Consultant</h3>
-          <p class="company">DXC Technology — Milano</p>
+          <p class="company" data-en="DXC Technology — Milan" data-it="DXC Technology — Milano">DXC Technology — Milan</p>
           <ul class="bullets">
-            <li>Raccolta e traduzione dei requisiti cliente in soluzioni di IT Service Management, con stretto allineamento alle esigenze di business.</li>
-            <li>Produzione di documentazione tecnica e sessioni di formazione da remoto, comunicando concetti tecnici complessi a stakeholder non tecnici.</li>
+            <li data-en="Gathering and translation of client requirements into IT Service Management solutions, closely aligned with business needs." data-it="Raccolta e traduzione dei requisiti cliente in soluzioni di IT Service Management, con stretto allineamento alle esigenze di business.">Gathering and translation of client requirements into IT Service Management solutions, closely aligned with business needs.</li>
+            <li data-en="Production of technical documentation and remote training sessions, communicating complex technical concepts to non-technical stakeholders." data-it="Produzione di documentazione tecnica e sessioni di formazione da remoto, comunicando concetti tecnici complessi a stakeholder non tecnici.">Production of technical documentation and remote training sessions, communicating complex technical concepts to non-technical stakeholders.</li>
           </ul>
         </div>
       </article>
     </div>
 
-    <h3 class="subhead" data-reveal>Prima del 2020</h3>
+    <h3 class="subhead" data-reveal data-en="Before 2020" data-it="Prima del 2020">Before 2020</h3>
     <ul class="mini-list" data-stagger>
-      <li><span>Mar 2020 – Giu 2020</span> Technology Solution Intern · Ernst &amp; Young · Milano (IT)</li>
-      <li><span>Giu 2019 – Dic 2019</span> Project Engineer · Lombardi Engineering · Locarno (CH)</li>
-      <li><span>Set 2018 – Feb 2019</span> Erasmus · Universidad Politécnica de Madrid (UPM) · Madrid (ES)</li>
-      <li><span>Mar 2017 – Lug 2017</span> Research Internship · École Polytechnique Fédérale de Lausanne (EPFL) · Losanna (CH)</li>
+      <li><span class="ml-when" data-en="Mar 2020 – Jun 2020" data-it="Mar 2020 – Giu 2020">Mar 2020 – Jun 2020</span> <span data-en="Technology Solution Intern · Ernst &amp; Young · Milan (IT)" data-it="Technology Solution Intern · Ernst &amp; Young · Milano (IT)">Technology Solution Intern · Ernst &amp; Young · Milan (IT)</span></li>
+      <li><span class="ml-when" data-en="Jun 2019 – Dec 2019" data-it="Giu 2019 – Dic 2019">Jun 2019 – Dec 2019</span> <span data-en="Project Engineer · Lombardi Engineering · Locarno (CH)" data-it="Project Engineer · Lombardi Engineering · Locarno (CH)">Project Engineer · Lombardi Engineering · Locarno (CH)</span></li>
+      <li><span class="ml-when" data-en="Sep 2018 – Feb 2019" data-it="Set 2018 – Feb 2019">Sep 2018 – Feb 2019</span> <span data-en="Erasmus · Universidad Politécnica de Madrid (UPM) · Madrid (ES)" data-it="Erasmus · Universidad Politécnica de Madrid (UPM) · Madrid (ES)">Erasmus · Universidad Politécnica de Madrid (UPM) · Madrid (ES)</span></li>
+      <li><span class="ml-when" data-en="Mar 2017 – Jul 2017" data-it="Mar 2017 – Lug 2017">Mar 2017 – Jul 2017</span> <span data-en="Research Internship · École Polytechnique Fédérale de Lausanne (EPFL) · Lausanne (CH)" data-it="Research Internship · École Polytechnique Fédérale de Lausanne (EPFL) · Losanna (CH)">Research Internship · École Polytechnique Fédérale de Lausanne (EPFL) · Lausanne (CH)</span></li>
     </ul>
   </section>
 
   <section id="formazione" aria-labelledby="formazione-title">
     <div class="section-head" data-reveal>
-      <p class="label">Formazione</p>
-      <h2 id="formazione-title">Formazione accademica</h2>
+      <p class="label" data-en="Education" data-it="Formazione">Education</p>
+      <h2 id="formazione-title" data-en="Academic education" data-it="Formazione accademica">Academic education</h2>
     </div>
     <div class="edu-grid" data-stagger>
       <article class="edu-card">
-        <p class="when">Set 2017 – Apr 2020</p>
+        <p class="when" data-en="Sep 2017 – Apr 2020" data-it="Set 2017 – Apr 2020">Sep 2017 – Apr 2020</p>
         <h3>M.Sc. Civil Engineering — Master in Hydraulics</h3>
         <p class="grade">109/110 · Politecnico di Milano</p>
-        <p>Modellazione di sistemi idraulici e fluidodinamica con forte focus su analisi data-driven, simulazione e decisioni quantitative. Metodi statistici e strumenti di calcolo e programmazione (MATLAB, VBA) per analizzare grandi dataset e costruire modelli predittivi. Tesi sulla stima del Sediment Yield per dighe.</p>
+        <p data-en="Modelling of hydraulic systems and fluid dynamics with a strong focus on data-driven analysis, simulation and quantitative decisions. Statistical methods and computing/programming tools (MATLAB, VBA) to analyse large datasets and build predictive models. Thesis on Sediment Yield estimation for dams." data-it="Modellazione di sistemi idraulici e fluidodinamica con forte focus su analisi data-driven, simulazione e decisioni quantitative. Metodi statistici e strumenti di calcolo e programmazione (MATLAB, VBA) per analizzare grandi dataset e costruire modelli predittivi. Tesi sulla stima del Sediment Yield per dighe.">Modelling of hydraulic systems and fluid dynamics with a strong focus on data-driven analysis, simulation and quantitative decisions. Statistical methods and computing/programming tools (MATLAB, VBA) to analyse large datasets and build predictive models. Thesis on Sediment Yield estimation for dams.</p>
       </article>
       <article class="edu-card">
-        <p class="when">Ott 2013 – Mar 2017</p>
+        <p class="when" data-en="Oct 2013 – Mar 2017" data-it="Ott 2013 – Mar 2017">Oct 2013 – Mar 2017</p>
         <h3>B.Sc. Civil and Environmental Engineering</h3>
-        <p class="grade">102/110 · Università degli Studi di Padova</p>
-        <p>Approccio rigoroso e strutturato all'analisi quantitativa e al problem solving; fondamenti di matematica, fisica e ingegneria. Excel e metodi analitici a supporto dei calcoli e dell'interpretazione dei risultati.</p>
+        <p class="grade" data-en="102/110 · University of Padua" data-it="102/110 · Università degli Studi di Padova">102/110 · University of Padua</p>
+        <p data-en="Rigorous, structured approach to quantitative analysis and problem solving; foundations of mathematics, physics and engineering. Excel and analytical methods supporting calculations and interpretation of results." data-it="Approccio rigoroso e strutturato all'analisi quantitativa e al problem solving; fondamenti di matematica, fisica e ingegneria. Excel e metodi analitici a supporto dei calcoli e dell'interpretazione dei risultati.">Rigorous, structured approach to quantitative analysis and problem solving; foundations of mathematics, physics and engineering. Excel and analytical methods supporting calculations and interpretation of results.</p>
       </article>
     </div>
   </section>
 
   <section id="certificazioni" aria-labelledby="certificazioni-title">
     <div class="section-head" data-reveal>
-      <p class="label">Riconoscimenti</p>
-      <h2 id="certificazioni-title">Programmi &amp; certificazioni</h2>
+      <p class="label" data-en="Recognition" data-it="Riconoscimenti">Recognition</p>
+      <h2 id="certificazioni-title" data-en="Programs &amp; certifications" data-it="Programmi &amp; certificazioni">Programs &amp; certifications</h2>
     </div>
     <ul class="cert-list" data-stagger>
       <li><span class="cert-date">Apr 2026</span><span class="cert-name">ITIL Foundation V5</span><span class="cert-org">PeopleCert</span></li>
-      <li><span class="cert-date">Dic 2025</span><span class="cert-name">CIO Award</span><span class="cert-org">Nestlé</span></li>
-      <li><span class="cert-date">Giu 2025</span><span class="cert-name">CSM Suite Professional</span><span class="cert-org">ServiceNow</span></li>
-      <li><span class="cert-date">Lug 2024</span><span class="cert-name">McKinsey Forward Program</span><span class="cert-org">McKinsey</span></li>
-      <li><span class="cert-date">Gen 2023</span><span class="cert-name">TechStar 2023</span><span class="cert-org">Accenture</span></li>
-      <li><span class="cert-date">Lug 2022</span><span class="cert-name">Nova Talent Member</span><span class="cert-org">Nova Talent</span></li>
+      <li><span class="cert-date" data-en="Dec 2025" data-it="Dic 2025">Dec 2025</span><span class="cert-name">CIO Award</span><span class="cert-org">Nestlé</span></li>
+      <li><span class="cert-date" data-en="Jun 2025" data-it="Giu 2025">Jun 2025</span><span class="cert-name">CSM Suite Professional</span><span class="cert-org">ServiceNow</span></li>
+      <li><span class="cert-date" data-en="Jul 2024" data-it="Lug 2024">Jul 2024</span><span class="cert-name">McKinsey Forward Program</span><span class="cert-org">McKinsey</span></li>
+      <li><span class="cert-date" data-en="Jan 2023" data-it="Gen 2023">Jan 2023</span><span class="cert-name">TechStar 2023</span><span class="cert-org">Accenture</span></li>
+      <li><span class="cert-date" data-en="Jul 2022" data-it="Lug 2022">Jul 2022</span><span class="cert-name">Nova Talent Member</span><span class="cert-org">Nova Talent</span></li>
       <li><span class="cert-date">Mar 2022</span><span class="cert-name">Certified Implementation Specialist CSM</span><span class="cert-org">ServiceNow</span></li>
-      <li><span class="cert-date">Ott 2020</span><span class="cert-name">Certified System Administrator</span><span class="cert-org">ServiceNow</span></li>
+      <li><span class="cert-date" data-en="Oct 2020" data-it="Ott 2020">Oct 2020</span><span class="cert-name">Certified System Administrator</span><span class="cert-org">ServiceNow</span></li>
     </ul>
   </section>
 
   <section id="lingue" aria-labelledby="lingue-title">
     <div class="section-head" data-reveal>
-      <p class="label">Lingue</p>
-      <h2 id="lingue-title">Lingue parlate</h2>
+      <p class="label" data-en="Languages" data-it="Lingue">Languages</p>
+      <h2 id="lingue-title" data-en="Spoken languages" data-it="Lingue parlate">Spoken languages</h2>
     </div>
     <ul class="lang-list" data-stagger>
       <li>
-        <div class="lang-row"><span class="lang-name">Italiano</span><span class="lang-level">Madrelingua</span></div>
+        <div class="lang-row"><span class="lang-name" data-en="Italian" data-it="Italiano">Italian</span><span class="lang-level" data-en="Native" data-it="Madrelingua">Native</span></div>
         <div class="lang-track" aria-hidden="true"><span class="lang-fill" data-bar="100%"></span></div>
       </li>
       <li>
-        <div class="lang-row"><span class="lang-name">Inglese</span><span class="lang-level">Fluente — C1 certificato</span></div>
+        <div class="lang-row"><span class="lang-name" data-en="English" data-it="Inglese">English</span><span class="lang-level" data-en="Fluent — C1 certified" data-it="Fluente — C1 certificato">Fluent — C1 certified</span></div>
         <div class="lang-track" aria-hidden="true"><span class="lang-fill" data-bar="88%"></span></div>
       </li>
       <li>
-        <div class="lang-row"><span class="lang-name">Spagnolo</span><span class="lang-level">Fluente — C1 certificato</span></div>
+        <div class="lang-row"><span class="lang-name" data-en="Spanish" data-it="Spagnolo">Spanish</span><span class="lang-level" data-en="Fluent — C1 certified" data-it="Fluente — C1 certificato">Fluent — C1 certified</span></div>
         <div class="lang-track" aria-hidden="true"><span class="lang-fill" data-bar="88%"></span></div>
       </li>
       <li>
-        <div class="lang-row"><span class="lang-name">Francese</span><span class="lang-level">Base</span></div>
+        <div class="lang-row"><span class="lang-name" data-en="French" data-it="Francese">French</span><span class="lang-level" data-en="Basic" data-it="Base">Basic</span></div>
         <div class="lang-track" aria-hidden="true"><span class="lang-fill" data-bar="35%"></span></div>
       </li>
       <li>
-        <div class="lang-row"><span class="lang-name">Giapponese</span><span class="lang-level">Base</span></div>
+        <div class="lang-row"><span class="lang-name" data-en="Japanese" data-it="Giapponese">Japanese</span><span class="lang-level" data-en="Basic" data-it="Base">Basic</span></div>
         <div class="lang-track" aria-hidden="true"><span class="lang-fill" data-bar="22%"></span></div>
       </li>
     </ul>
@@ -637,14 +674,14 @@ footer p{color:#cfc9ba;max-width:36ch;margin-bottom:var(--sp-3);font-size:.95rem
 
   <section id="testimonianze" aria-labelledby="testimonianze-title">
     <div class="section-head" data-reveal>
-      <p class="label">Dicono di me</p>
-      <h2 id="testimonianze-title">Testimonianze</h2>
-      <p class="disclaimer">Testimonianze illustrative, a scopo dimostrativo.</p>
+      <p class="label" data-en="What people say" data-it="Dicono di me">What people say</p>
+      <h2 id="testimonianze-title" data-en="Testimonials" data-it="Testimonianze">Testimonials</h2>
+      <p class="disclaimer" data-en="Illustrative testimonials, for demonstration purposes." data-it="Testimonianze illustrative, a scopo dimostrativo.">Illustrative testimonials, for demonstration purposes.</p>
     </div>
     <div class="testimonials" data-stagger>
 
       <figure class="testimonial-card">
-        <blockquote>Ha guidato le nostre iniziative di AI conversazionale con un metodo chiaro: discovery rigorosa, prioritizzazione onesta e una roadmap che il team è riuscito davvero a eseguire. I numeri di adoption parlano da soli.</blockquote>
+        <blockquote data-en="He led our conversational-AI initiatives with a clear method: rigorous discovery, honest prioritisation and a roadmap the team could actually execute. The adoption numbers speak for themselves." data-it="Ha guidato le nostre iniziative di AI conversazionale con un metodo chiaro: discovery rigorosa, prioritizzazione onesta e una roadmap che il team è riuscito davvero a eseguire. I numeri di adoption parlano da soli.">He led our conversational-AI initiatives with a clear method: rigorous discovery, honest prioritisation and a roadmap the team could actually execute. The adoption numbers speak for themselves.</blockquote>
         <figcaption class="testimonial-author">
           <span class="testimonial-avatar" aria-hidden="true">LR</span>
           <span>
@@ -655,18 +692,18 @@ footer p{color:#cfc9ba;max-width:36ch;margin-bottom:var(--sp-3);font-size:.95rem
       </figure>
 
       <figure class="testimonial-card">
-        <blockquote>Traduce concetti AI complessi in requisiti di prodotto che engineering e business capiscono allo stesso modo. Raro trovare qualcuno a suo agio sia su un LLM sia in una presentazione al comitato esecutivo.</blockquote>
+        <blockquote data-en="He translates complex AI concepts into product requirements that engineering and business understand in the same way. Rare to find someone equally at ease with an LLM and in a presentation to the executive committee." data-it="Traduce concetti AI complessi in requisiti di prodotto che engineering e business capiscono allo stesso modo. Raro trovare qualcuno a suo agio sia su un LLM sia in una presentazione al comitato esecutivo.">He translates complex AI concepts into product requirements that engineering and business understand in the same way. Rare to find someone equally at ease with an LLM and in a presentation to the executive committee.</blockquote>
         <figcaption class="testimonial-author">
           <span class="testimonial-avatar" aria-hidden="true">MC</span>
           <span>
             <span class="testimonial-name">Marco Conti</span>
-            <span class="testimonial-role">Engineering Lead, piattaforma AI</span>
+            <span class="testimonial-role" data-en="Engineering Lead, AI platform" data-it="Engineering Lead, piattaforma AI">Engineering Lead, AI platform</span>
           </span>
         </figcaption>
       </figure>
 
       <figure class="testimonial-card">
-        <blockquote>Abbiamo lavorato insieme sulla migrazione a ServiceNow. Analisi dati puntuale, stime affidabili e una comunicazione con gli stakeholder che ha tenuto il progetto allineato dall'inizio alla fine.</blockquote>
+        <blockquote data-en="We worked together on the ServiceNow migration. Precise data analysis, reliable estimates and stakeholder communication that kept the project aligned from start to finish." data-it="Abbiamo lavorato insieme sulla migrazione a ServiceNow. Analisi dati puntuale, stime affidabili e una comunicazione con gli stakeholder che ha tenuto il progetto allineato dall'inizio alla fine.">We worked together on the ServiceNow migration. Precise data analysis, reliable estimates and stakeholder communication that kept the project aligned from start to finish.</blockquote>
         <figcaption class="testimonial-author">
           <span class="testimonial-avatar" aria-hidden="true">GF</span>
           <span>
@@ -684,21 +721,21 @@ footer p{color:#cfc9ba;max-width:36ch;margin-bottom:var(--sp-3);font-size:.95rem
 <footer id="contatti" aria-labelledby="contatti-title">
   <div class="footer-grid">
     <div data-reveal>
-      <h2 id="contatti-title">Parliamo di prodotto, AI e dati</h2>
-      <p>Mi interessa confrontarmi su strategia di prodotto AI, GenAI applicata ai workflow e analytics. Scrivimi: rispondo volentieri.</p>
-      <a class="btn btn--light" href="mailto:andrea.baldin95@gmail.com">Scrivimi una mail <span class="circle" aria-hidden="true">&#8594;</span></a>
+      <h2 id="contatti-title" data-en="Let's talk product, AI and data" data-it="Parliamo di prodotto, AI e dati">Let's talk product, AI and data</h2>
+      <p data-en="I'm keen to exchange ideas on AI product strategy, GenAI applied to workflows and analytics. Drop me a line — I'm happy to reply." data-it="Mi interessa confrontarmi su strategia di prodotto AI, GenAI applicata ai workflow e analytics. Scrivimi: rispondo volentieri.">I'm keen to exchange ideas on AI product strategy, GenAI applied to workflows and analytics. Drop me a line — I'm happy to reply.</p>
+      <a class="btn btn--light" href="mailto:andrea.baldin95@gmail.com"><span data-en="Send me an email" data-it="Scrivimi una mail">Send me an email</span> <span class="circle" aria-hidden="true">&#8594;</span></a>
     </div>
     <div class="footer-col" data-reveal>
-      <h3>Contatti</h3>
+      <h3 data-en="Contact" data-it="Contatti">Contact</h3>
       <ul>
         <li><a href="mailto:andrea.baldin95@gmail.com">andrea.baldin95@gmail.com</a></li>
-        <li>Milano, Italia</li>
+        <li data-en="Milan, Italy" data-it="Milano, Italia">Milan, Italy</li>
       </ul>
     </div>
     <div class="footer-col" data-reveal>
-      <h3>Link</h3>
+      <h3 data-en="Links" data-it="Link">Links</h3>
       <ul>
-        <li><a href="gamification.html">Career Quest — CV gamificato</a></li>
+        <li><a href="gamification.html" data-en="Career Quest — gamified CV" data-it="Career Quest — CV gamificato">Career Quest — gamified CV</a></li>
         <li><a href="https://github.com/BaldoAB1995" target="_blank" rel="noopener">GitHub</a></li>
         <!-- TODO: sostituire con l'URL del profilo LinkedIn reale -->
         <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -707,9 +744,72 @@ footer p{color:#cfc9ba;max-width:36ch;margin-bottom:var(--sp-3);font-size:.95rem
   </div>
 </footer>
 
-<p class="copyright">© 2026 Andrea Baldin — AI Product Strategy &amp; Analytics</p>
+<p class="copyright" data-en="© 2026 Andrea Baldin — AI Product Strategy &amp; Analytics" data-it="© 2026 Andrea Baldin — Strategia di Prodotto AI &amp; Analytics">© 2026 Andrea Baldin — AI Product Strategy &amp; Analytics</p>
 
 </div>
+
+<script>
+/* ---------- i18n: EN default + IT toggle (shared with gamification.html) ---------- */
+(function(){
+  var KEY='careerquest:lang';
+  var DICT={
+    title:{
+      en:'Andrea Baldin | AI Product Strategy & Analytics',
+      it:'Andrea Baldin | Strategia di Prodotto AI & Analytics'
+    },
+    desc:{
+      en:'Andrea Baldin — product-minded technologist. AI product strategy, GenAI/LLM integration into workflows and data analytics. Currently at Nestlé working on Microsoft Copilot and Agent365.',
+      it:'Andrea Baldin — product-minded technologist. Strategia di prodotto AI, integrazione GenAI/LLM nei workflow e data analytics. Oggi in Nestlé su Microsoft Copilot e Agent365.'
+    },
+    ogdesc:{
+      en:'5+ years across consulting, IT platform delivery and AI strategy. 100+ GenAI use cases from concept to production.',
+      it:'5+ anni tra consulenza, delivery di piattaforme IT e strategia AI. 100+ use case GenAI dal concept alla produzione.'
+    }
+  };
+  function stored(){ try{ return localStorage.getItem(KEY); }catch(e){ return null; } }
+  function save(l){ try{ localStorage.setItem(KEY,l); }catch(e){} }
+  function apply(lang){
+    lang = (lang==='it') ? 'it' : 'en';
+    document.documentElement.lang = lang;
+    var nodes = document.querySelectorAll('[data-en]');
+    for(var i=0;i<nodes.length;i++){
+      var el = nodes[i];
+      var val = el.getAttribute('data-'+lang);
+      if(val===null) continue;
+      if(el.hasAttribute('data-i18n-html')) el.innerHTML = val; else el.textContent = val;
+    }
+    var ar = document.querySelectorAll('[data-en-aria]');
+    for(var j=0;j<ar.length;j++){
+      var av = ar[j].getAttribute('data-'+lang+'-aria');
+      if(av!==null) ar[j].setAttribute('aria-label', av);
+    }
+    if(DICT.title[lang]) document.title = DICT.title[lang];
+    var m = document.querySelector('meta[name="description"]');
+    if(m && DICT.desc[lang]) m.setAttribute('content', DICT.desc[lang]);
+    var ogt = document.querySelector('meta[property="og:title"]');
+    if(ogt && DICT.title[lang]) ogt.setAttribute('content', DICT.title[lang]);
+    var ogd = document.querySelector('meta[property="og:description"]');
+    if(ogd && DICT.ogdesc[lang]) ogd.setAttribute('content', DICT.ogdesc[lang]);
+    var btns = document.querySelectorAll('[data-lang-btn]');
+    for(var k=0;k<btns.length;k++){
+      btns[k].setAttribute('aria-pressed', btns[k].getAttribute('data-lang-btn')===lang ? 'true' : 'false');
+    }
+    try{ document.dispatchEvent(new CustomEvent('cq:langchange',{detail:lang})); }catch(e){}
+  }
+  apply(stored() || 'en');
+  document.addEventListener('DOMContentLoaded', function(){
+    var btns = document.querySelectorAll('[data-lang-btn]');
+    for(var k=0;k<btns.length;k++){
+      btns[k].addEventListener('click', function(){
+        var l = this.getAttribute('data-lang-btn');
+        save(l); apply(l);
+      });
+    }
+    apply(stored() || 'en');
+  });
+  window.CareerQuestLang = { apply: apply, get: function(){ return stored() || 'en'; } };
+})();
+</script>
 
 <script type="module">
 /* Animazioni con Motion (motion.dev) — import dinamico ESM da CDN.
@@ -821,9 +921,4 @@ if (RM) {
 }
 </script>
 </body>
-<script type="module">
-import { animate } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
-animate(".hero-title", { opacity: [0, 1], y: [20, 0] }, { duration: 0.6 });
-</script>
-  
 </html>
