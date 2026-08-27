@@ -3,431 +3,819 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nome Cognome | Portfolio & CV</title>
+<title>Andrea Baldin | AI Product Strategy &amp; Analytics</title>
+<meta name="description" content="Andrea Baldin — Product-minded technologist. Strategia di prodotto AI, integrazione GenAI/LLM nei workflow e data analytics. Oggi in Nestlé su Microsoft Copilot e Agent365." />
+<meta name="author" content="Andrea Baldin" />
+<meta property="og:title" content="Andrea Baldin | AI Product Strategy &amp; Analytics" />
+<meta property="og:description" content="5+ anni tra consulenza, delivery di piattaforme IT e strategia AI. 100+ use case GenAI dal concept alla produzione." />
+<meta property="og:type" content="profile" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
---bg:#f4f2ec;
---card:#e6e1d5;
---ink:#17160f;
---muted:#6f6a5e;
---line:#d8d3c5;
---accent:#17160f;
+  --paper:#f4f2ec;
+  --paper-2:#ece8dd;
+  --card:#fbfaf6;
+  --ink:#1b1a14;
+  --muted:#615c4e;
+  --line:#dcd7c9;
+  --accent:#9a3b1b;
+  --accent-tint:#efe3da;
+
+  --r-lg:18px;
+  --r-md:12px;
+  --r-sm:8px;
+
+  --maxw:1100px;
+  --sp-1:8px; --sp-2:16px; --sp-3:24px; --sp-4:32px;
+  --sp-5:48px; --sp-6:64px; --sp-7:96px;
+
+  --font-display:'Space Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 }
+
 *{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
 body{
-font-family:'Inter',Arial,sans-serif;
-background:var(--bg);
-color:var(--ink);
-line-height:1.5;
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
-.wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
 a{color:inherit;text-decoration:none;}
-ul{list-style:none;}
-img{max-width:100%;display:block;border-radius:16px;}
-.label{
-display:flex;align-items:center;gap:8px;
-font-size:12px;letter-spacing:2px;text-transform:uppercase;
-color:var(--muted);font-weight:600;margin-bottom:14px;
+button{font:inherit;cursor:pointer;}
+ul,ol{list-style:none;}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.12;letter-spacing:-0.015em;}
+
+h2{font-size:clamp(1.7rem,3.4vw,2.35rem);margin-bottom:var(--sp-2);}
+h3{font-size:1.08rem;font-weight:600;letter-spacing:-0.005em;}
+
+.skip-link{
+  position:absolute;left:-9999px;top:0;z-index:100;
+  background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:0 0 var(--r-sm) 0;
+  font-size:.85rem;
 }
-.label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink);display:inline-block;}
+.skip-link:focus{left:0;}
+
+.scroll-progress{
+  position:fixed;top:0;left:0;height:3px;width:100%;
+  background:var(--accent);transform-origin:left;transform:scaleX(0);
+  z-index:60;display:none;
+}
+@media (prefers-reduced-motion:no-preference){.scroll-progress{display:block;}}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:40;
+  background:rgba(244,242,236,.82);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:var(--maxw);margin:0 auto;padding:14px 32px;
+  display:flex;justify-content:space-between;align-items:center;gap:var(--sp-3);
+}
+.logo{
+  font-family:var(--font-display);font-size:.98rem;font-weight:600;letter-spacing:.01em;
+  display:inline-flex;align-items:center;gap:9px;
+}
+.logo .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block;}
+.site-header nav ul{display:flex;flex-wrap:wrap;gap:22px;font-size:.9rem;font-weight:500;}
+.site-header nav a{color:var(--muted);transition:color .18s ease;}
+.site-header nav a:hover,.site-header nav a:focus-visible{color:var(--ink);}
+@media (max-width:640px){.site-header nav{display:none;}}
+
+/* ---------- Buttons ---------- */
 .btn{
-display:inline-flex;align-items:center;gap:10px;
-background:var(--ink);color:#fff;padding:10px 10px 10px 22px;
-border-radius:40px;font-size:14px;font-weight:500;border:none;cursor:pointer;
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--ink);color:var(--paper);
+  padding:11px 12px 11px 22px;border-radius:999px;
+  font-size:.9rem;font-weight:500;border:1px solid var(--ink);
+  transition:transform .18s ease,background .18s ease,color .18s ease;
 }
 .btn .circle{
-width:30px;height:30px;border-radius:50%;background:#fff;color:var(--ink);
-display:flex;align-items:center;justify-content:center;font-size:16px;
+  width:28px;height:28px;border-radius:50%;background:var(--paper);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;font-size:.95rem;
+  transition:transform .18s ease;
 }
-header{
-display:flex;justify-content:space-between;align-items:center;
-padding:28px 0;
-}
-.logo{font-size:15px;font-weight:700;letter-spacing:1px;display:flex;align-items:center;gap:8px;}
-.logo span.dot{width:8px;height:8px;border-radius:50%;background:var(--ink);display:inline-block;}
-nav ul{display:flex;gap:32px;font-size:14px;font-weight:500;}
-nav ul a:hover{color:var(--muted);}
-.menu-btn{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:1px;}
-
-section{padding:70px 0;}
-
-.hero-grid{
-display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;
-}
-.hero-photo{
-border-radius:20px;overflow:hidden;background:var(--card);min-height:520px;
-}
-.hero-photo img{height:100%;width:100%;object-fit:cover;border-radius:20px;}
-.hero-text h1{
-font-size:44px;font-weight:400;line-height:1.15;margin-bottom:6px;
-}
-.hero-text h1 strong{font-weight:800;display:block;}
-.hero-text p.bio{color:var(--muted);font-size:15px;max-width:420px;margin:18px 0 26px;}
-.quick-facts{
-display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;
-border-top:1px solid var(--line);padding-top:24px;
-}
-.quick-facts div h4{font-size:13px;font-weight:700;margin-bottom:6px;}
-.quick-facts div p{font-size:12px;color:var(--muted);}
-
-.side-col{display:flex;flex-direction:column;gap:20px;}
-.stats-card{
-background:var(--card);border-radius:20px;padding:26px;
-}
-.stats-card h3{font-size:20px;font-weight:700;margin-bottom:20px;max-width:280px;}
-.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-.stat{border-top:1px solid var(--line);padding-top:10px;}
-.stat b{font-size:26px;display:block;}
-.stat span{font-size:12px;color:var(--muted);}
-
-.process-card{
-background:var(--card);border-radius:20px;padding:26px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:20px;align-items:center;
-}
-.process-card h3{font-size:19px;font-weight:700;margin-bottom:14px;}
-.process-card ol{display:flex;flex-direction:column;gap:10px;counter-reset:step;}
-.process-card ol li{font-size:13px;padding-left:26px;position:relative;color:var(--muted);}
-.process-card ol li::before{
-counter-increment:step;content:counter(step);position:absolute;left:0;top:0;
-width:18px;height:18px;border-radius:50%;background:var(--ink);color:#fff;
-font-size:10px;display:flex;align-items:center;justify-content:center;
-}
-.process-card .process-img{border-radius:16px;overflow:hidden;height:220px;}
-.process-card .process-img img{height:100%;object-fit:cover;}
-
-.trusted{
-display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;
-border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0;
-}
-.trusted span{font-size:16px;font-weight:600;color:var(--muted);opacity:.7;}
-
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
-.about-grid h2{font-size:30px;font-weight:700;line-height:1.3;max-width:420px;}
-.about-grid .col p{font-size:14px;color:var(--muted);margin-bottom:16px;}
-
-.timeline{display:flex;flex-direction:column;gap:0;margin-top:30px;}
-.timeline-item{
-display:grid;grid-template-columns:160px 1fr;gap:24px;padding:26px 0;border-top:1px solid var(--line);
-}
-.timeline-item .when{font-size:13px;color:var(--muted);font-weight:600;}
-.timeline-item h4{font-size:17px;font-weight:700;margin-bottom:4px;}
-.timeline-item .company{font-size:13px;color:var(--muted);margin-bottom:10px;}
-.timeline-item p{font-size:14px;color:var(--muted);max-width:640px;}
-
-.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px;}
-.edu-card{background:var(--card);border-radius:18px;padding:24px;}
-.edu-card .when{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:8px;}
-.edu-card h4{font-size:16px;font-weight:700;margin-bottom:4px;}
-.edu-card p{font-size:13px;color:var(--muted);}
-
-.gallery{
-display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:30px;
-}
-.gallery .g-item{border-radius:16px;overflow:hidden;height:170px;background:var(--card);}
-.gallery .g-item img{height:100%;width:100%;object-fit:cover;}
-
-.testimonials{
-display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px;
-}
-.testimonial-card{
-background:var(--card);border:1px solid var(--line);border-radius:20px;
-padding:28px;display:flex;flex-direction:column;gap:22px;
-transition:transform .25s ease;
-}
-.testimonial-card:hover{transform:translateY(-4px);}
-.testimonial-card blockquote{
-font-size:15px;line-height:1.6;color:var(--ink);
-}
-.testimonial-card blockquote::before{
-content:"\201C";
-display:block;font-size:44px;line-height:.6;color:var(--muted);margin-bottom:10px;
-}
-.testimonial-author{
-display:flex;align-items:center;gap:14px;
-border-top:1px solid var(--line);padding-top:18px;margin-top:auto;
-}
-.testimonial-avatar{
-width:44px;height:44px;flex-shrink:0;border-radius:50%;
-background:var(--ink);color:var(--bg);
-display:flex;align-items:center;justify-content:center;
-font-size:14px;font-weight:700;letter-spacing:.5px;
-}
-.testimonial-name{font-size:14px;font-weight:700;display:block;}
-.testimonial-role{font-size:12px;color:var(--muted);display:block;margin-top:2px;}
-
-footer{
-background:var(--ink);color:#f4f2ec;border-radius:24px;padding:50px 40px;margin-bottom:50px;
-display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;
-}
-footer h3{font-size:24px;font-weight:700;margin-bottom:14px;}
-footer p{font-size:14px;color:#c9c6bc;max-width:320px;}
-footer .col h5{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#c9c6bc;margin-bottom:14px;}
-footer .col ul{display:flex;flex-direction:column;gap:8px;font-size:14px;}
-.copyright{
-text-align:center;font-size:12px;color:var(--muted);padding-bottom:40px;
-}
-
-@media (max-width:900px){
-.hero-grid,.about-grid,.process-card{grid-template-columns:1fr;}
-.quick-facts{grid-template-columns:1fr;}
-.gallery{grid-template-columns:repeat(2,1fr);}
-.timeline-item{grid-template-columns:1fr;}
-.testimonials{grid-template-columns:1fr;}
-footer{grid-template-columns:1fr;}
-}
-
-@media (min-width:901px) and (max-width:1100px){
-.testimonials{grid-template-columns:1fr 1fr;}
-}
-
+.btn:hover .circle{transform:translateX(3px);}
+.btn--ghost{background:transparent;color:var(--ink);border-color:var(--line);padding:11px 22px;}
+.btn--ghost:hover{border-color:var(--ink);}
+.btn--light{background:var(--paper);color:var(--ink);border-color:var(--paper);}
+.btn--light .circle{background:var(--ink);color:var(--paper);}
 @media (prefers-reduced-motion:no-preference){
-.js-motion .testimonial-card{opacity:0;transform:translateY(24px);}
+  .btn:hover{transform:translateY(-2px);}
+}
+
+/* ---------- Labels ---------- */
+.label{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--font-body);
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:var(--sp-2);
+}
+.label::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;}
+
+/* ---------- Sections ---------- */
+main section{padding-block:var(--sp-7);border-top:1px solid var(--line);scroll-margin-top:84px;}
+main section:first-child{border-top:none;}
+.section-head{max-width:640px;margin-bottom:var(--sp-5);}
+.section-head h2{margin-bottom:0;}
+.section-head .disclaimer{margin-top:var(--sp-2);font-size:.82rem;color:var(--muted);font-style:italic;}
+
+/* ---------- Hero ---------- */
+.hero{padding-top:var(--sp-6);}
+.hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:var(--sp-5);align-items:center;}
+.hero h1{font-size:clamp(2.6rem,6.5vw,4.1rem);font-weight:500;margin-bottom:var(--sp-2);}
+.hero .tagline{font-size:clamp(1.15rem,2.4vw,1.5rem);color:var(--ink);font-weight:400;max-width:30ch;margin-bottom:var(--sp-3);}
+.hero .bio{color:var(--muted);font-size:1rem;max-width:52ch;margin-bottom:var(--sp-4);}
+.hero .actions{display:flex;flex-wrap:wrap;gap:var(--sp-2);margin-bottom:var(--sp-5);}
+
+.quick-facts{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3);
+  border-top:1px solid var(--line);padding-top:var(--sp-3);
+}
+.quick-facts dt{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;line-height:1;}
+.quick-facts dd{font-size:.82rem;color:var(--muted);margin-top:6px;}
+
+.profile-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:var(--sp-4);will-change:transform;
+}
+.monogram{
+  width:64px;height:64px;border-radius:var(--r-md);
+  background:var(--ink);color:var(--paper);
+  font-family:var(--font-display);font-weight:600;font-size:1.4rem;
+  display:flex;align-items:center;justify-content:center;letter-spacing:.02em;
+  margin-bottom:var(--sp-3);
+}
+.profile-name{font-family:var(--font-display);font-weight:600;font-size:1.1rem;}
+.profile-role{color:var(--muted);font-size:.88rem;margin-bottom:var(--sp-3);}
+.profile-meta{display:flex;flex-direction:column;gap:var(--sp-2);border-top:1px solid var(--line);padding-top:var(--sp-3);}
+.profile-meta dt{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.profile-meta dd{font-size:.9rem;font-weight:500;}
+
+/* ---------- Trusted strip ---------- */
+.strip{padding-block:var(--sp-5);}
+.trusted{
+  display:flex;flex-wrap:wrap;gap:var(--sp-2) var(--sp-5);align-items:center;justify-content:space-between;
+}
+.trusted li{
+  font-family:var(--font-display);font-size:1rem;font-weight:500;color:var(--muted);
+}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-5);}
+.about-lead p{font-size:1.15rem;line-height:1.6;}
+.about-body{display:flex;flex-direction:column;gap:var(--sp-2);}
+.about-body p{color:var(--muted);}
+
+/* ---------- Competency grid ---------- */
+.competency-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-2);margin-bottom:var(--sp-5);
+}
+.competency-grid li{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:var(--sp-3);
+  transition:border-color .2s ease,transform .2s ease;
+}
+.competency-grid li h3{margin-bottom:6px;}
+.competency-grid li p{font-size:.86rem;color:var(--muted);line-height:1.5;}
+@media (prefers-reduced-motion:no-preference){
+  .competency-grid li:hover{transform:translateY(-4px);}
+}
+.competency-grid li:hover{border-color:var(--accent);}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2);margin-bottom:var(--sp-5);}
+.stats-card,.method-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--sp-4);
+}
+.stats-card h3,.method-card h3{margin-bottom:var(--sp-3);}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);}
+.stats-grid dt{font-family:var(--font-display);font-size:1.9rem;font-weight:500;line-height:1;}
+.stats-grid dd{font-size:.8rem;color:var(--muted);margin-top:6px;}
+.method{display:flex;flex-direction:column;gap:var(--sp-2);counter-reset:step;}
+.method li{position:relative;padding-left:34px;font-size:.92rem;color:var(--muted);}
+.method li::before{
+  counter-increment:step;content:counter(step);
+  position:absolute;left:0;top:1px;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--ink);color:var(--paper);
+  font-family:var(--font-display);font-size:.72rem;font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+}
+
+.toolbox .chips{display:flex;flex-wrap:wrap;gap:10px;}
+.chips li{
+  border:1px solid var(--line);border-radius:999px;padding:7px 15px;
+  font-size:.82rem;font-weight:500;background:var(--card);
+}
+
+/* ---------- Timeline ---------- */
+.timeline{position:relative;margin-left:8px;padding-left:34px;margin-bottom:var(--sp-6);}
+.timeline::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:2px;background:var(--line);}
+.timeline-progress{
+  position:absolute;left:0;top:10px;width:2px;height:calc(100% - 20px);
+  background:var(--accent);transform-origin:top center;transform:scaleY(0);
+}
+.timeline-item{
+  position:relative;display:grid;grid-template-columns:150px 1fr;gap:var(--sp-3);
+  padding:var(--sp-4) 0;border-top:1px solid var(--line);
+}
+.timeline-item:first-of-type{border-top:none;padding-top:0;}
+.timeline-item::before{
+  content:"";position:absolute;left:-40px;top:calc(var(--sp-4) + 4px);
+  width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent);
+}
+.timeline-item:first-of-type::before{top:4px;}
+.timeline-item .when{font-size:.82rem;color:var(--muted);font-weight:600;padding-top:2px;}
+.timeline-item h3{margin-bottom:4px;}
+.timeline-item .company{font-size:.85rem;color:var(--muted);margin-bottom:var(--sp-2);}
+.bullets{display:flex;flex-direction:column;gap:8px;}
+.bullets li{position:relative;padding-left:18px;font-size:.92rem;color:var(--muted);}
+.bullets li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent);}
+
+.subhead{margin-bottom:var(--sp-3);color:var(--muted);font-weight:600;}
+.mini-list{display:flex;flex-direction:column;gap:var(--sp-2);}
+.mini-list li{font-size:.9rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 14px;padding-bottom:var(--sp-2);border-bottom:1px solid var(--line);}
+.mini-list li span{color:var(--ink);font-weight:600;min-width:130px;}
+
+/* ---------- Education ---------- */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2);}
+.edu-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--sp-4);}
+.edu-card .when{font-size:.78rem;color:var(--muted);font-weight:600;margin-bottom:var(--sp-1);}
+.edu-card h3{margin-bottom:4px;}
+.edu-card .grade{font-size:.85rem;color:var(--accent);font-weight:600;margin-bottom:var(--sp-2);}
+.edu-card p{font-size:.9rem;color:var(--muted);}
+
+/* ---------- Certifications ---------- */
+.cert-list{display:flex;flex-direction:column;}
+.cert-list li{
+  display:grid;grid-template-columns:110px 1fr auto;gap:var(--sp-3);align-items:baseline;
+  padding:var(--sp-3) 0;border-top:1px solid var(--line);
+}
+.cert-list li:first-child{border-top:none;}
+.cert-date{font-size:.8rem;color:var(--muted);font-weight:600;}
+.cert-name{font-family:var(--font-display);font-weight:500;font-size:1rem;}
+.cert-org{font-size:.82rem;color:var(--muted);}
+
+/* ---------- Languages ---------- */
+.lang-list{display:flex;flex-direction:column;gap:var(--sp-3);max-width:640px;}
+.lang-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+.lang-name{font-family:var(--font-display);font-weight:500;}
+.lang-level{font-size:.82rem;color:var(--muted);}
+.lang-track{height:6px;border-radius:999px;background:var(--paper-2);overflow:hidden;}
+.lang-fill{display:block;height:100%;border-radius:999px;background:var(--accent);}
+
+/* ---------- Testimonials ---------- */
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-2);}
+.testimonial-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:var(--sp-4);display:flex;flex-direction:column;gap:var(--sp-3);
+  transition:transform .2s ease,border-color .2s ease;
+}
+.testimonial-card:hover{border-color:var(--accent);}
+@media (prefers-reduced-motion:no-preference){
+  .testimonial-card:hover{transform:translateY(-4px);}
+}
+.testimonial-card blockquote{font-size:.95rem;line-height:1.6;}
+.testimonial-card blockquote::before{
+  content:"\201C";display:block;font-family:var(--font-display);
+  font-size:2.6rem;line-height:.6;color:var(--accent);margin-bottom:10px;
+}
+.testimonial-author{display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);padding-top:var(--sp-3);margin-top:auto;}
+.testimonial-avatar{
+  width:42px;height:42px;flex-shrink:0;border-radius:50%;
+  background:var(--ink);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:.85rem;font-weight:600;
+}
+.testimonial-name{font-size:.9rem;font-weight:600;display:block;}
+.testimonial-role{font-size:.78rem;color:var(--muted);display:block;margin-top:2px;}
+
+/* ---------- Footer ---------- */
+footer{
+  background:var(--ink);color:var(--paper);
+  border-radius:var(--r-lg);padding:var(--sp-6) var(--sp-5);
+  margin:var(--sp-7) 0 var(--sp-4);
+}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:var(--sp-5);}
+footer h2{color:var(--paper);margin-bottom:var(--sp-2);}
+footer p{color:#cfc9ba;max-width:36ch;margin-bottom:var(--sp-3);font-size:.95rem;}
+.footer-col h3{font-family:var(--font-body);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#cfc9ba;margin-bottom:var(--sp-2);font-weight:600;}
+.footer-col ul{display:flex;flex-direction:column;gap:10px;font-size:.92rem;}
+.footer-col a{color:var(--paper);border-bottom:1px solid transparent;transition:border-color .18s ease;}
+.footer-col a:hover{border-color:var(--paper);}
+.copyright{text-align:center;font-size:.78rem;color:var(--muted);padding-bottom:var(--sp-5);}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  .hero-grid,.about-grid,.two-col{grid-template-columns:1fr;}
+  .competency-grid{grid-template-columns:1fr 1fr;}
+  .edu-grid{grid-template-columns:1fr;}
+  .testimonials{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  main section{padding-block:var(--sp-6);}
+}
+@media (max-width:620px){
+  .wrap{padding:0 20px;}
+  .header-inner{padding:14px 20px;}
+  .quick-facts{grid-template-columns:1fr;gap:var(--sp-2);}
+  .stats-grid{grid-template-columns:1fr;}
+  .competency-grid{grid-template-columns:1fr;}
+  .testimonials{grid-template-columns:1fr;}
+  .timeline-item{grid-template-columns:1fr;gap:6px;}
+  .cert-list li{grid-template-columns:1fr;gap:4px;}
+  footer{padding:var(--sp-5) var(--sp-4);}
+}
+
+/* ---------- Motion: initial states (only when motion allowed) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .js-motion [data-hero],
+  .js-motion [data-reveal]{opacity:0;}
+  .js-motion [data-hero]{transform:translateY(16px);}
+  .js-motion [data-reveal]{transform:translateY(24px);}
+  .js-motion [data-stagger] > *{opacity:0;transform:translateY(16px);}
+  .js-motion .timeline-progress{transform:scaleY(0);}
+  .js-motion .lang-fill{width:0;}
 }
 </style>
+<noscript><style>
+.js-motion [data-hero],.js-motion [data-reveal],.js-motion [data-stagger] > *{opacity:1 !important;transform:none !important;}
+.js-motion .lang-fill{width:auto !important;}
+</style></noscript>
 <script>document.documentElement.classList.add('js-motion');</script>
 </head>
 <body>
-<div class="wrap">
 
-<header>
-<div class="logo"><span class="dot"></span> NOME COGNOME</div>
-<nav>
-<ul>
-<li><a href="#chi-sono">Chi sono</a></li>
-<li><a href="#competenze">Competenze</a></li>
-<li><a href="#esperienza">Esperienza</a></li>
-<li><a href="#progetti">Progetti</a></li>
-<li><a href="#testimonianze">Testimonianze</a></li>
-<li><a href="#contatti">Contatti</a></li>
-</ul>
-</nav>
-<div class="menu-btn">MENU ☰</div>
+<a class="skip-link" href="#top">Salta al contenuto</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="#top"><span class="dot"></span> Andrea Baldin</a>
+    <nav aria-label="Sezioni del sito">
+      <ul>
+        <li><a href="#profilo">Profilo</a></li>
+        <li><a href="#competenze">Competenze</a></li>
+        <li><a href="#esperienza">Esperienza</a></li>
+        <li><a href="#formazione">Formazione</a></li>
+        <li><a href="#testimonianze">Testimonianze</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<section id="hero">
-<div class="hero-grid">
-<div class="hero-photo">
-<img src="https://picsum.photos/seed/profilo/600/700" alt="Foto profilo placeholder" />
-</div>
-<div>
-<div class="hero-text">
-<div class="label">Ciao, sono Nome Cognome</div>
-<h1>Sviluppatore &amp; Designer <strong>di esperienze digitali</strong></h1>
-<p class="bio">Testo placeholder: breve descrizione professionale. Sostituisci questo paragrafo con una presentazione sintetica del tuo percorso, delle tue competenze principali e di cosa offri ai tuoi clienti o datori di lavoro.</p>
-<button class="btn">Contattami <span class="circle">&#8594;</span></button>
-</div>
-<div class="quick-facts">
-<div><h4>5+ Anni</h4><p>Di esperienza placeholder</p></div>
-<div><h4>IT / EN</h4><p>Lingue placeholder</p></div>
-<div><h4>Remoto</h4><p>Disponibilita placeholder</p></div>
-</div>
-</div>
-</div>
-</section>
+<div class="wrap">
+<main id="top">
 
-<section id="competenze">
-<div class="hero-grid">
-<div class="side-col">
-<div class="stats-card">
-<h3>Competenze tecniche e trasversali</h3>
-<div class="stats-grid">
-<div class="stat"><b>95%</b><span>Placeholder skill 1</span></div>
-<div class="stat"><b>90%</b><span>Placeholder skill 2</span></div>
-<div class="stat"><b>85%</b><span>Placeholder skill 3</span></div>
-<div class="stat"><b>80%</b><span>Placeholder skill 4</span></div>
-</div>
-</div>
-<div class="process-card">
-<div>
-<h3>Un metodo di lavoro strutturato</h3>
-<ol>
-<li>Ricerca &amp; analisi placeholder</li>
-<li>Design &amp; prototipazione placeholder</li>
-<li>Sviluppo &amp; test placeholder</li>
-<li>Consegna &amp; supporto placeholder</li>
-</ol>
-</div>
-<div class="process-img">
-<img src="https://picsum.photos/seed/metodo/400/400" alt="Placeholder" />
-</div>
-</div>
-</div>
-<div class="hero-photo" style="min-height:auto;">
-<img src="https://picsum.photos/seed/lavoro/600/760" alt="Placeholder" />
-</div>
-</div>
-</section>
+  <section id="hero" class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="label" data-hero>AI Product Strategy &amp; Analytics</p>
+        <h1 id="hero-title" data-hero>Andrea Baldin</h1>
+        <p class="tagline" data-hero>Trasformo l'AI generativa in prodotti che le persone usano davvero.</p>
+        <p class="bio" data-hero>Product-minded technologist con oltre 5 anni di esperienza tra consulenza, delivery di piattaforme IT e strategia AI. Oggi guido i prodotti Copilot e Agent365 in Nestlé: dalla discovery alla produzione, oltre 100 use case di AI generativa e assistenti conversazionali portati da concept a scala.</p>
+        <div class="actions" data-hero>
+          <a class="btn" href="mailto:andrea.baldin95@gmail.com">Contattami <span class="circle" aria-hidden="true">&#8594;</span></a>
+          <a class="btn btn--ghost" href="#esperienza">Vedi il percorso</a>
+        </div>
+        <dl class="quick-facts" data-hero>
+          <div><dt data-count="5" data-suffix="+">5+</dt><dd>Anni di esperienza</dd></div>
+          <div><dt data-count="100" data-suffix="+">100+</dt><dd>Use case GenAI in produzione</dd></div>
+          <div><dt data-count="8">8</dt><dd>Certificazioni &amp; premi</dd></div>
+        </dl>
+      </div>
+      <aside class="profile-card" data-hero data-parallax aria-label="In sintesi">
+        <div class="monogram" aria-hidden="true">AB</div>
+        <p class="profile-name">Andrea Baldin</p>
+        <p class="profile-role">Tech Expert — Conversation AI &amp; M365 Copilot</p>
+        <dl class="profile-meta">
+          <div><dt>Azienda</dt><dd>Nestlé — Milano</dd></div>
+          <div><dt>Focus</dt><dd>Microsoft Copilot &amp; Agent365</dd></div>
+          <div><dt>Lingue</dt><dd>Inglese C1 · Spagnolo C1</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
 
-<section>
-<div class="trusted">
-<span>Azienda Uno</span>
-<span>Azienda Due</span>
-<span>Azienda Tre</span>
-<span>Azienda Quattro</span>
-<span>Azienda Cinque</span>
-<span>Azienda Sei</span>
-</div>
-</section>
+  <section class="strip" aria-label="Aziende e istituzioni del percorso">
+    <ul class="trusted" data-stagger>
+      <li>Nestlé</li>
+      <li>Accenture</li>
+      <li>DXC Technology</li>
+      <li>Ernst &amp; Young</li>
+      <li>ServiceNow</li>
+      <li>McKinsey</li>
+      <li>Politecnico di Milano</li>
+    </ul>
+  </section>
 
-<section id="chi-sono">
-<div class="about-grid">
-<h2>Realizzo soluzioni digitali centrate sulle persone, unendo estetica e funzionalita</h2>
-<div class="col">
-<p>Testo placeholder: qui puoi raccontare chi sei, il tuo percorso formativo e professionale, e cosa ti rende unico nel tuo settore. Sostituisci con contenuti reali quando pronto.</p>
-<p>Testo placeholder: aggiungi un secondo paragrafo con i tuoi valori, il tuo approccio al lavoro e gli obiettivi professionali che stai cercando di raggiungere.</p>
-</div>
-</div>
-</section>
+  <section id="profilo" aria-labelledby="profilo-title">
+    <div class="section-head" data-reveal>
+      <p class="label">Profilo</p>
+      <h2 id="profilo-title">Prodotto, AI e dati al servizio di decisioni migliori</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-lead" data-reveal>
+        <p>Integro capability di AI generativa e LLM in workflow reali, traduco concetti complessi, data-heavy e "agentici" in requisiti di prodotto chiari e uso i dati (Power BI, Excel, JavaScript, C++, VBA) per definire metriche e guidare le scelte.</p>
+      </div>
+      <div class="about-body" data-stagger>
+        <p>In precedenza ho avuto l'ownership end-to-end delle iniziative di AI generativa e assistenti conversazionali in Nestlé: dalla discovery e definizione dei requisiti alla delivery cross-funzionale, all'adoption e alla comunicazione agli stakeholder, coprendo oltre 100 use case dal concept alla produzione.</p>
+        <p>Track record consolidato nel collaborare con team di engineering, data e business per lanciare e scalare soluzioni digitali in contesti veloci e matriciali, comunicando roadmap e impatto fino al C-level.</p>
+      </div>
+    </div>
+  </section>
 
-<section id="esperienza">
-<div class="label">Percorso professionale</div>
-<h2 style="font-size:30px;font-weight:700;">Esperienza lavorativa</h2>
-<div class="timeline">
-<div class="timeline-item">
-<div class="when">2023 - Presente</div>
-<div>
-<h4>Ruolo Professionale Placeholder</h4>
-<div class="company">Nome Azienda Placeholder - Citta</div>
-<p>Descrizione placeholder delle responsabilita e dei risultati ottenuti in questo ruolo. Sostituisci con le tue esperienze reali.</p>
-</div>
-</div>
-<div class="timeline-item">
-<div class="when">2021 - 2023</div>
-<div>
-<h4>Ruolo Professionale Placeholder</h4>
-<div class="company">Nome Azienda Placeholder - Citta</div>
-<p>Descrizione placeholder delle responsabilita e dei risultati ottenuti in questo ruolo. Sostituisci con le tue esperienze reali.</p>
-</div>
-</div>
-<div class="timeline-item">
-<div class="when">2019 - 2021</div>
-<div>
-<h4>Ruolo Professionale Placeholder</h4>
-<div class="company">Nome Azienda Placeholder - Citta</div>
-<p>Descrizione placeholder delle responsabilita e dei risultati ottenuti in questo ruolo. Sostituisci con le tue esperienze reali.</p>
-</div>
-</div>
-</div>
+  <section id="competenze" aria-labelledby="competenze-title">
+    <div class="section-head" data-reveal>
+      <p class="label">Competenze</p>
+      <h2 id="competenze-title">Competenze chiave</h2>
+    </div>
 
-<div class="edu-grid">
-<div class="edu-card">
-<div class="when">2016 - 2019</div>
-<h4>Titolo di Studio Placeholder</h4>
-<p>Nome Istituto/Universita Placeholder</p>
-</div>
-<div class="edu-card">
-<div class="when">2011 - 2016</div>
-<h4>Titolo di Studio Placeholder</h4>
-<p>Nome Istituto/Universita Placeholder</p>
-</div>
-</div>
-</section>
+    <ul class="competency-grid" data-stagger>
+      <li><h3>GenAI / LLM Integration</h3><p>Capability generative integrate negli strumenti e nei processi di lavoro esistenti.</p></li>
+      <li><h3>Product Strategy &amp; Roadmapping</h3><p>Visione, prioritizzazione e roadmap per iniziative AI su larga scala.</p></li>
+      <li><h3>0-to-1 Delivery</h3><p>Dalla scoperta del problema al rilascio in produzione.</p></li>
+      <li><h3>Cross-functional Leadership</h3><p>Coordinamento di engineering, data e business in ambienti matriciali.</p></li>
+      <li><h3>Evaluation Frameworks &amp; Metrics</h3><p>Metriche di successo e valutazione di adoption e impatto.</p></li>
+      <li><h3>Stakeholder &amp; C-level Communication</h3><p>Roadmap e risultati raccontati in modo chiaro alla leadership.</p></li>
+      <li><h3>Data Analytics</h3><p>Power BI ed Excel per misurare, spiegare e decidere.</p></li>
+    </ul>
 
-<section id="progetti">
-<div class="label">Alcuni lavori recenti</div>
-<h2 style="font-size:30px;font-weight:700;">Progetti placeholder</h2>
-<div class="gallery">
-<div class="g-item"><img src="https://picsum.photos/seed/p1/300/300" alt="Progetto placeholder"/></div>
-<div class="g-item"><img src="https://picsum.photos/seed/p2/300/300" alt="Progetto placeholder"/></div>
-<div class="g-item"><img src="https://picsum.photos/seed/p3/300/300" alt="Progetto placeholder"/></div>
-<div class="g-item"><img src="https://picsum.photos/seed/p4/300/300" alt="Progetto placeholder"/></div>
-<div class="g-item"><img src="https://picsum.photos/seed/p5/300/300" alt="Progetto placeholder"/></div>
-<div class="g-item"><img src="https://picsum.photos/seed/p6/300/300" alt="Progetto placeholder"/></div>
-</div>
-</section>
+    <div class="two-col">
+      <div class="stats-card" data-reveal>
+        <h3>Numeri che raccontano il lavoro</h3>
+        <dl class="stats-grid" data-stagger>
+          <div><dt data-count="100" data-suffix="+">100+</dt><dd>Use case AI dal concept alla produzione</dd></div>
+          <div><dt data-count="50" data-suffix="+">50+</dt><dd>Storie end-to-end su piattaforme HR e ITSM</dd></div>
+          <div><dt data-count="150" data-suffix="k&euro;+">150k&euro;+</dt><dd>Valore progetti re-ingegnerizzati in Accenture</dd></div>
+          <div><dt data-count="75" data-suffix="+">75+</dt><dd>Processi migrati a ServiceNow</dd></div>
+        </dl>
+      </div>
+      <div class="method-card" data-reveal>
+        <h3>Un metodo di prodotto ripetibile</h3>
+        <ol class="method" data-stagger>
+          <li>Discovery e definizione dei requisiti</li>
+          <li>Prioritizzazione e roadmap</li>
+          <li>Delivery cross-funzionale con engineering, data e business</li>
+          <li>Adoption, metriche e comunicazione agli stakeholder</li>
+        </ol>
+      </div>
+    </div>
 
-<section id="testimonianze">
-<div class="label">Dicono di me</div>
-<h2 style="font-size:30px;font-weight:700;">Testimonianze</h2>
-<div class="testimonials">
+    <div class="toolbox" data-reveal>
+      <p class="label">Toolbox</p>
+      <ul class="chips" data-stagger>
+        <li>Microsoft Conversational AI</li>
+        <li>Microsoft Copilot</li>
+        <li>Agent365</li>
+        <li>ServiceNow</li>
+        <li>Power BI</li>
+        <li>Excel</li>
+        <li>JavaScript</li>
+        <li>C++</li>
+        <li>VBA</li>
+        <li>MATLAB</li>
+      </ul>
+    </div>
+  </section>
 
-<figure class="testimonial-card">
-<blockquote>Ha guidato il redesign del nostro portale con un metodo chiaro e trasparente. Consegne puntuali, codice ordinato e un occhio di riguardo per accessibilita e performance: il tasso di conversione e cresciuto del 22% in tre mesi.</blockquote>
-<figcaption class="testimonial-author">
-<span class="testimonial-avatar" aria-hidden="true">LR</span>
-<span>
-<span class="testimonial-name">Laura Rinaldi</span>
-<span class="testimonial-role">Head of Product, Nordwind Studio</span>
-</span>
-</figcaption>
-</figure>
+  <section id="esperienza" aria-labelledby="esperienza-title">
+    <div class="section-head" data-reveal>
+      <p class="label">Percorso professionale</p>
+      <h2 id="esperienza-title">Esperienza lavorativa</h2>
+    </div>
 
-<figure class="testimonial-card">
-<blockquote>Collaboratore affidabile e autonomo. Ha preso in carico una codebase legacy, l'ha modernizzata a piccoli passi senza mai bloccare il team e ha lasciato una documentazione che usiamo ancora oggi. Lo richiamerei domani.</blockquote>
-<figcaption class="testimonial-author">
-<span class="testimonial-avatar" aria-hidden="true">MC</span>
-<span>
-<span class="testimonial-name">Marco Conti</span>
-<span class="testimonial-role">CTO, Fabrica Digitale</span>
-</span>
-</figcaption>
-</figure>
+    <div class="timeline">
+      <span class="timeline-progress" aria-hidden="true"></span>
 
-<figure class="testimonial-card">
-<blockquote>Abbiamo lavorato insieme su una web app per la gestione eventi. Traduce i requisiti di business in interfacce semplici e cura ogni dettaglio dell'esperienza utente. I feedback dei nostri clienti sono stati entusiastici.</blockquote>
-<figcaption class="testimonial-author">
-<span class="testimonial-avatar" aria-hidden="true">GF</span>
-<span>
-<span class="testimonial-name">Giulia Ferraro</span>
-<span class="testimonial-role">Project Manager, Meridiana Eventi</span>
-</span>
-</figcaption>
-</figure>
+      <article class="timeline-item" data-reveal>
+        <p class="when">Gen 2025 – Oggi</p>
+        <div>
+          <h3>Tech Expert — Conversation AI &amp; M365 Copilot</h3>
+          <p class="company">Nestlé — Milano · in precedenza Tech Expert — Artificial Intelligence</p>
+          <ul class="bullets">
+            <li>Ownership di Agent365 e Microsoft Copilot Chat: strategia di prodotto, roadmap e adoption a livello di organizzazione.</li>
+            <li>Ownership di strategia, roadmap e sviluppo end-to-end degli assistenti conversazionali AI, con oltre 100 use case dal concept (0&rarr;1) alla produzione.</li>
+            <li>Riferimento tecnico per lo stack Microsoft Conversational AI: design ed evoluzione delle esperienze conversazionali basate su tecnologie AI Microsoft.</li>
+            <li>Collaborazione cross-funzionale con engineering, data e business per definire requisiti e integrare capability GenAI/LLM nei workflow esistenti.</li>
+            <li>Definizione di metriche e reporting su adoption e impatto, con presentazioni a stakeholder interni ed esterni, incluso il C-level.</li>
+          </ul>
+        </div>
+      </article>
 
-</div>
-</section>
+      <article class="timeline-item" data-reveal>
+        <p class="when">Lug 2023 – Gen 2025</p>
+        <div>
+          <h3>IT ServiceNow Business Analyst</h3>
+          <p class="company">Nestlé — Milano</p>
+          <ul class="bullets">
+            <li>Definizione di obiettivi, milestone e delivery plan per iniziative di data analytics su piattaforme HR e ITSM, coprendo oltre 50 storie end-to-end.</li>
+            <li>Monitoraggio di avanzamento, tempi e standard qualitativi; linee guida di best practice che hanno migliorato contenuti di piattaforma e accuratezza del reporting.</li>
+            <li>Facilitazione della definizione della soluzione tecnica in ServiceNow, allineando requisiti di business e necessità di data &amp; analytics e gestendo il rischio in modo proattivo.</li>
+            <li>Allineamento degli stakeholder tramite dashboard Power BI e presentazioni executive per comunicare insight complessi in modo chiaro.</li>
+          </ul>
+        </div>
+      </article>
 
-<footer id="contatti">
-<div>
-<h3>Parliamo del tuo prossimo progetto</h3>
-<p>Testo placeholder: invita chi legge a contattarti per collaborazioni, opportunita di lavoro o semplicemente per un saluto.</p>
-</div>
-<div class="col">
-<h5>Contatti</h5>
-<ul>
-<li>nome.cognome@placeholder.com</li>
-<li>+39 000 000 0000</li>
-<li>Citta, Italia</li>
-</ul>
-</div>
-<div class="col">
-<h5>Social</h5>
-<ul>
-<li><a href="#">LinkedIn</a></li>
-<li><a href="#">GitHub</a></li>
-<li><a href="#">Instagram</a></li>
-</ul>
-</div>
+      <article class="timeline-item" data-reveal>
+        <p class="when">Feb 2021 – Lug 2023</p>
+        <div>
+          <h3>Cloud Transformation &amp; Architecture Consultant</h3>
+          <p class="company">Accenture — Milano</p>
+          <ul class="bullets">
+            <li>Raccolta e analisi dei requisiti cliente per evolvere una piattaforma di Project Management (CSM, ITSM, CMDB, App Engine), traducendo esigenze di business in requisiti tecnici.</li>
+            <li>Re-ingegnerizzazione di software legacy per la stima delle change request, con tecniche di data transformation e modeling su oltre 150k&euro; di valore progetti e più di 75 processi migrati a ServiceNow.</li>
+            <li>Analisi e visualizzazioni data-driven a supporto delle decisioni del cliente su investimenti in piattaforma e processi.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="timeline-item" data-reveal>
+        <p class="when">Lug 2020 – Feb 2021</p>
+        <div>
+          <h3>Business Consultant</h3>
+          <p class="company">DXC Technology — Milano</p>
+          <ul class="bullets">
+            <li>Raccolta e traduzione dei requisiti cliente in soluzioni di IT Service Management, con stretto allineamento alle esigenze di business.</li>
+            <li>Produzione di documentazione tecnica e sessioni di formazione da remoto, comunicando concetti tecnici complessi a stakeholder non tecnici.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="subhead" data-reveal>Prima del 2020</h3>
+    <ul class="mini-list" data-stagger>
+      <li><span>Mar 2020 – Giu 2020</span> Technology Solution Intern · Ernst &amp; Young · Milano (IT)</li>
+      <li><span>Giu 2019 – Dic 2019</span> Project Engineer · Lombardi Engineering · Locarno (CH)</li>
+      <li><span>Set 2018 – Feb 2019</span> Erasmus · Universidad Politécnica de Madrid (UPM) · Madrid (ES)</li>
+      <li><span>Mar 2017 – Lug 2017</span> Research Internship · École Polytechnique Fédérale de Lausanne (EPFL) · Losanna (CH)</li>
+    </ul>
+  </section>
+
+  <section id="formazione" aria-labelledby="formazione-title">
+    <div class="section-head" data-reveal>
+      <p class="label">Formazione</p>
+      <h2 id="formazione-title">Formazione accademica</h2>
+    </div>
+    <div class="edu-grid" data-stagger>
+      <article class="edu-card">
+        <p class="when">Set 2017 – Apr 2020</p>
+        <h3>M.Sc. Civil Engineering — Master in Hydraulics</h3>
+        <p class="grade">109/110 · Politecnico di Milano</p>
+        <p>Modellazione di sistemi idraulici e fluidodinamica con forte focus su analisi data-driven, simulazione e decisioni quantitative. Metodi statistici e strumenti di calcolo e programmazione (MATLAB, VBA) per analizzare grandi dataset e costruire modelli predittivi. Tesi sulla stima del Sediment Yield per dighe.</p>
+      </article>
+      <article class="edu-card">
+        <p class="when">Ott 2013 – Mar 2017</p>
+        <h3>B.Sc. Civil and Environmental Engineering</h3>
+        <p class="grade">102/110 · Università degli Studi di Padova</p>
+        <p>Approccio rigoroso e strutturato all'analisi quantitativa e al problem solving; fondamenti di matematica, fisica e ingegneria. Excel e metodi analitici a supporto dei calcoli e dell'interpretazione dei risultati.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="certificazioni" aria-labelledby="certificazioni-title">
+    <div class="section-head" data-reveal>
+      <p class="label">Riconoscimenti</p>
+      <h2 id="certificazioni-title">Programmi &amp; certificazioni</h2>
+    </div>
+    <ul class="cert-list" data-stagger>
+      <li><span class="cert-date">Apr 2026</span><span class="cert-name">ITIL Foundation V5</span><span class="cert-org">PeopleCert</span></li>
+      <li><span class="cert-date">Dic 2025</span><span class="cert-name">CIO Award</span><span class="cert-org">Nestlé</span></li>
+      <li><span class="cert-date">Giu 2025</span><span class="cert-name">CSM Suite Professional</span><span class="cert-org">ServiceNow</span></li>
+      <li><span class="cert-date">Lug 2024</span><span class="cert-name">McKinsey Forward Program</span><span class="cert-org">McKinsey</span></li>
+      <li><span class="cert-date">Gen 2023</span><span class="cert-name">TechStar 2023</span><span class="cert-org">Accenture</span></li>
+      <li><span class="cert-date">Lug 2022</span><span class="cert-name">Nova Talent Member</span><span class="cert-org">Nova Talent</span></li>
+      <li><span class="cert-date">Mar 2022</span><span class="cert-name">Certified Implementation Specialist CSM</span><span class="cert-org">ServiceNow</span></li>
+      <li><span class="cert-date">Ott 2020</span><span class="cert-name">Certified System Administrator</span><span class="cert-org">ServiceNow</span></li>
+    </ul>
+  </section>
+
+  <section id="lingue" aria-labelledby="lingue-title">
+    <div class="section-head" data-reveal>
+      <p class="label">Lingue</p>
+      <h2 id="lingue-title">Lingue parlate</h2>
+    </div>
+    <ul class="lang-list" data-stagger>
+      <li>
+        <div class="lang-row"><span class="lang-name">Italiano</span><span class="lang-level">Madrelingua</span></div>
+        <div class="lang-track" aria-hidden="true"><span class="lang-fill" data-bar="100%"></span></div>
+      </li>
+      <li>
+        <div class="lang-row"><span class="lang-name">Inglese</span><span class="lang-level">Fluente — C1 certificato</span></div>
+        <div class="lang-track" aria-hidden="true"><span class="lang-fill" data-bar="88%"></span></div>
+      </li>
+      <li>
+        <div class="lang-row"><span class="lang-name">Spagnolo</span><span class="lang-level">Fluente — C1 certificato</span></div>
+        <div class="lang-track" aria-hidden="true"><span class="lang-fill" data-bar="88%"></span></div>
+      </li>
+      <li>
+        <div class="lang-row"><span class="lang-name">Francese</span><span class="lang-level">Base</span></div>
+        <div class="lang-track" aria-hidden="true"><span class="lang-fill" data-bar="35%"></span></div>
+      </li>
+      <li>
+        <div class="lang-row"><span class="lang-name">Giapponese</span><span class="lang-level">Base</span></div>
+        <div class="lang-track" aria-hidden="true"><span class="lang-fill" data-bar="22%"></span></div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="testimonianze" aria-labelledby="testimonianze-title">
+    <div class="section-head" data-reveal>
+      <p class="label">Dicono di me</p>
+      <h2 id="testimonianze-title">Testimonianze</h2>
+      <p class="disclaimer">Testimonianze illustrative, a scopo dimostrativo.</p>
+    </div>
+    <div class="testimonials" data-stagger>
+
+      <figure class="testimonial-card">
+        <blockquote>Ha guidato le nostre iniziative di AI conversazionale con un metodo chiaro: discovery rigorosa, prioritizzazione onesta e una roadmap che il team è riuscito davvero a eseguire. I numeri di adoption parlano da soli.</blockquote>
+        <figcaption class="testimonial-author">
+          <span class="testimonial-avatar" aria-hidden="true">LR</span>
+          <span>
+            <span class="testimonial-name">Laura Rinaldi</span>
+            <span class="testimonial-role">Head of Digital Workplace</span>
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure class="testimonial-card">
+        <blockquote>Traduce concetti AI complessi in requisiti di prodotto che engineering e business capiscono allo stesso modo. Raro trovare qualcuno a suo agio sia su un LLM sia in una presentazione al comitato esecutivo.</blockquote>
+        <figcaption class="testimonial-author">
+          <span class="testimonial-avatar" aria-hidden="true">MC</span>
+          <span>
+            <span class="testimonial-name">Marco Conti</span>
+            <span class="testimonial-role">Engineering Lead, piattaforma AI</span>
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure class="testimonial-card">
+        <blockquote>Abbiamo lavorato insieme sulla migrazione a ServiceNow. Analisi dati puntuale, stime affidabili e una comunicazione con gli stakeholder che ha tenuto il progetto allineato dall'inizio alla fine.</blockquote>
+        <figcaption class="testimonial-author">
+          <span class="testimonial-avatar" aria-hidden="true">GF</span>
+          <span>
+            <span class="testimonial-name">Giulia Ferraro</span>
+            <span class="testimonial-role">Program Manager, ITSM</span>
+          </span>
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+</main>
+
+<footer id="contatti" aria-labelledby="contatti-title">
+  <div class="footer-grid">
+    <div data-reveal>
+      <h2 id="contatti-title">Parliamo di prodotto, AI e dati</h2>
+      <p>Mi interessa confrontarmi su strategia di prodotto AI, GenAI applicata ai workflow e analytics. Scrivimi: rispondo volentieri.</p>
+      <a class="btn btn--light" href="mailto:andrea.baldin95@gmail.com">Scrivimi una mail <span class="circle" aria-hidden="true">&#8594;</span></a>
+    </div>
+    <div class="footer-col" data-reveal>
+      <h3>Contatti</h3>
+      <ul>
+        <li><a href="mailto:andrea.baldin95@gmail.com">andrea.baldin95@gmail.com</a></li>
+        <li>Milano, Italia</li>
+      </ul>
+    </div>
+    <div class="footer-col" data-reveal>
+      <h3>Link</h3>
+      <ul>
+        <li><a href="https://github.com/BaldoAB1995" target="_blank" rel="noopener">GitHub</a></li>
+        <!-- TODO: sostituire con l'URL del profilo LinkedIn reale -->
+        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>
 
-<div class="copyright">(c) 2026 Nome Cognome - Tutti i diritti riservati (contenuti placeholder)</div>
+<p class="copyright">© 2026 Andrea Baldin — AI Product Strategy &amp; Analytics</p>
 
 </div>
 
 <script type="module">
-// Comparsa scaglionata (stagger) delle card testimonianze con Motion (motion.dev)
-const grid = document.querySelector('#testimonianze .testimonials');
-const cards = grid ? Array.from(grid.querySelectorAll('.testimonial-card')) : [];
-const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const reveal = () => cards.forEach(c => { c.style.opacity = '1'; c.style.transform = 'none'; });
+/* Animazioni con Motion (motion.dev) — import dinamico ESM da CDN.
+   Coerente con l'uso già presente nella sezione Testimonianze.
+   prefers-reduced-motion: stato finale reso immediatamente, nessun import. */
+const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const q = (s) => Array.from(document.querySelectorAll(s));
 
-if (!cards.length || prefersReduced) {
-  reveal();
+function finalState(){
+  q('[data-hero],[data-reveal]').forEach((el) => { el.style.opacity = '1'; el.style.transform = 'none'; });
+  q('[data-stagger]').forEach((el) => Array.from(el.children).forEach((c) => { c.style.opacity = '1'; c.style.transform = 'none'; }));
+  q('[data-bar]').forEach((el) => { el.style.width = el.dataset.bar; });
+  q('[data-count]').forEach((el) => { el.innerHTML = el.dataset.count + (el.dataset.suffix || ''); });
+  const tp = document.querySelector('.timeline-progress');
+  if (tp) tp.style.transform = 'scaleY(1)';
+}
+
+if (RM) {
+  finalState();
 } else {
+  let loaded = false;
+  const failSafe = setTimeout(() => { if (!loaded) finalState(); }, 3500);
+
   import('https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm')
-    .then(({ animate, inView }) => {
-      inView(grid, () => {
-        cards.forEach((card, i) => {
-          animate(
-            card,
-            { opacity: [0, 1], y: [24, 0] },
-            { duration: 0.5, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }
-          );
-        });
-      }, { amount: 0.3 });
+    .then(({ animate, inView, scroll, stagger }) => {
+      loaded = true;
+      clearTimeout(failSafe);
+      const EASE = [0.22, 1, 0.36, 1];
+
+      /* Hero: entrata scaglionata al load */
+      const hero = q('[data-hero]');
+      if (hero.length) {
+        animate(hero,
+          { opacity: [0, 1], transform: ['translateY(16px)', 'translateY(0)'] },
+          { duration: 0.6, delay: stagger(0.08), ease: EASE });
+      }
+
+      /* Reveal on-scroll degli header di sezione (una sola volta) */
+      q('[data-reveal]').forEach((el) => {
+        const stop = inView(el, () => {
+          animate(el,
+            { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0)'] },
+            { duration: 0.55, ease: EASE });
+          if (stop) stop();
+        }, { amount: 0.25 });
+      });
+
+      /* Liste e griglie: reveal scaglionato dei figli (una sola volta) */
+      q('[data-stagger]').forEach((el) => {
+        const stop = inView(el, () => {
+          animate(Array.from(el.children),
+            { opacity: [0, 1], transform: ['translateY(16px)', 'translateY(0)'] },
+            { duration: 0.5, delay: stagger(0.06), ease: EASE });
+          if (stop) stop();
+        }, { amount: 0.15 });
+      });
+
+      /* Contatori numerici */
+      q('[data-count]').forEach((el) => {
+        const to = parseFloat(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        const stop = inView(el, () => {
+          animate(0, to, {
+            duration: 1.1,
+            ease: EASE,
+            onUpdate: (v) => { el.innerHTML = Math.round(v) + suffix; }
+          });
+          if (stop) stop();
+        }, { amount: 0.8 });
+      });
+
+      /* Barre delle lingue */
+      q('[data-bar]').forEach((el) => {
+        const stop = inView(el, () => {
+          animate(el, { width: ['0%', el.dataset.bar] }, { duration: 0.9, ease: EASE });
+          if (stop) stop();
+        }, { amount: 0.8 });
+      });
+
+      /* Timeline: la linea verticale si "disegna" con lo scroll */
+      const spine = document.querySelector('.timeline-progress');
+      const timeline = document.querySelector('.timeline');
+      if (spine && timeline && typeof scroll === 'function') {
+        scroll(
+          animate(spine, { transform: ['scaleY(0)', 'scaleY(1)'] }, { ease: 'linear' }),
+          { target: timeline, offset: ['start 75%', 'end 65%'] }
+        );
+      }
+
+      /* Barra di avanzamento in cima alla pagina */
+      const bar = document.querySelector('.scroll-progress');
+      if (bar && typeof scroll === 'function') {
+        scroll(animate(bar, { transform: ['scaleX(0)', 'scaleX(1)'] }, { ease: 'linear' }));
+      }
+
+      /* Parallax leggero sulla card profilo (solo puntatori precisi) */
+      if (window.matchMedia('(pointer: fine)').matches) {
+        const card = document.querySelector('[data-parallax]');
+        if (card) {
+          window.addEventListener('pointermove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 6;
+            const y = (e.clientY / window.innerHeight - 0.5) * 6;
+            animate(card, { transform: `translate(${x}px, ${y}px)` }, { duration: 0.6, ease: 'easeOut' });
+          }, { passive: true });
+        }
+      }
     })
-    .catch(reveal);
+    .catch(() => { clearTimeout(failSafe); finalState(); });
 }
 </script>
 </body>
