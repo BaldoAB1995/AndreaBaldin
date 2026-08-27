@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Andrea Baldin | Career Quest — CV gamificato</title>
+<meta name="description" content="Career Quest: la carriera di Andrea Baldin come gioco di ruolo. Attributi, quest completate, achievement e inventario di competenze. Stessi contenuti del CV, in chiave gioco." />
+<meta name="author" content="Andrea Baldin" />
+<meta property="og:title" content="Andrea Baldin | Career Quest — CV gamificato" />
+<meta property="og:description" content="La carriera di Andrea Baldin come RPG: livello, XP, quest, achievement e skill tree. 5+ anni di esperienza, 100+ use case GenAI, 8 achievement." />
+<meta property="og:type" content="profile" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4f2ec;
+  --paper-2:#ece8dd;
+  --card:#fbfaf6;
+  --ink:#1b1a14;
+  --muted:#615c4e;
+  --line:#dcd7c9;
+  --accent:#9a3b1b;
+  --accent-tint:#efe3da;
+  --xp:#4a7a3c;
+  --xp-tint:#e3eadd;
+
+  --r-lg:18px;
+  --r-md:12px;
+  --r-sm:8px;
+
+  --maxw:1100px;
+  --sp-1:8px; --sp-2:16px; --sp-3:24px; --sp-4:32px;
+  --sp-5:48px; --sp-6:64px; --sp-7:96px;
+
+  --font-display:'Space Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --font-mono:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;cursor:pointer;}
+ul,ol{list-style:none;}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.12;letter-spacing:-0.015em;}
+h2{font-size:clamp(1.7rem,3.4vw,2.35rem);margin-bottom:var(--sp-2);}
+h3{font-size:1.08rem;font-weight:600;letter-spacing:-0.005em;}
+
+.skip-link{
+  position:absolute;left:-9999px;top:0;z-index:100;
+  background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:0 0 var(--r-sm) 0;
+  font-size:.85rem;
+}
+.skip-link:focus{left:0;}
+
+.scroll-progress{
+  position:fixed;top:0;left:0;height:3px;width:100%;
+  background:var(--accent);transform-origin:left;transform:scaleX(0);
+  z-index:60;display:none;
+}
+@media (prefers-reduced-motion:no-preference){.scroll-progress{display:block;}}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:40;
+  background:rgba(244,242,236,.82);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:var(--maxw);margin:0 auto;padding:14px 32px;
+  display:flex;justify-content:space-between;align-items:center;gap:var(--sp-3);
+}
+.logo{
+  font-family:var(--font-display);font-size:.98rem;font-weight:600;letter-spacing:.01em;
+  display:inline-flex;align-items:center;gap:9px;
+}
+.logo .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block;}
+.site-header nav ul{display:flex;flex-wrap:wrap;gap:22px;font-size:.9rem;font-weight:500;align-items:center;}
+.site-header nav a{color:var(--muted);transition:color .18s ease;}
+.site-header nav a:hover,.site-header nav a:focus-visible{color:var(--ink);}
+.site-header nav a.nav-home{
+  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--ink);
+}
+.site-header nav a.nav-home:hover{border-color:var(--ink);}
+@media (max-width:760px){.site-header nav .nav-scroll{display:none;}}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--ink);color:var(--paper);
+  padding:11px 12px 11px 22px;border-radius:999px;
+  font-size:.9rem;font-weight:500;border:1px solid var(--ink);
+  transition:transform .18s ease,background .18s ease,color .18s ease;
+}
+.btn .circle{
+  width:28px;height:28px;border-radius:50%;background:var(--paper);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;font-size:.95rem;
+  transition:transform .18s ease;
+}
+.btn:hover .circle{transform:translateX(3px);}
+.btn--ghost{background:transparent;color:var(--ink);border-color:var(--line);padding:11px 22px;}
+.btn--ghost:hover{border-color:var(--ink);}
+.btn--light{background:var(--paper);color:var(--ink);border-color:var(--paper);}
+.btn--light .circle{background:var(--ink);color:var(--paper);}
+@media (prefers-reduced-motion:no-preference){
+  .btn:hover{transform:translateY(-2px);}
+}
+
+/* ---------- Labels ---------- */
+.label{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--font-body);
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:var(--sp-2);
+}
+.label::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;}
+
+/* ---------- HUD chips (arcade accent) ---------- */
+.hud-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--font-mono);font-size:.66rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;
+  background:var(--ink);color:var(--paper);
+  padding:5px 10px;border-radius:var(--r-sm);
+}
+.hud-chip--ghost{background:transparent;color:var(--muted);border:1px solid var(--line);}
+.hud-chip--xp{background:var(--xp);color:#fff;}
+
+/* ---------- Sections ---------- */
+main section{padding-block:var(--sp-7);border-top:1px solid var(--line);scroll-margin-top:84px;}
+main section:first-child{border-top:none;}
+.section-head{max-width:640px;margin-bottom:var(--sp-5);}
+.section-head h2{margin-bottom:0;}
+.section-head .sub{margin-top:var(--sp-2);font-size:.9rem;color:var(--muted);}
+
+/* ---------- Hero / Character sheet ---------- */
+.hero{padding-top:var(--sp-6);}
+.hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:var(--sp-5);align-items:center;}
+.hero h1{font-size:clamp(2.6rem,6.5vw,4.1rem);font-weight:500;margin:var(--sp-2) 0;}
+.char-class{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-size:1.05rem;font-weight:500;}
+.char-level{display:flex;align-items:center;gap:12px;margin-bottom:var(--sp-3);font-size:.95rem;}
+.char-level .muted-inline{color:var(--muted);font-size:.85rem;}
+.level-badge{
+  width:44px;height:44px;flex-shrink:0;border-radius:var(--r-md);
+  background:var(--ink);color:var(--paper);
+  font-family:var(--font-display);font-weight:600;font-size:1.3rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero .tagline{font-size:clamp(1.15rem,2.4vw,1.5rem);color:var(--ink);font-weight:400;max-width:32ch;margin-bottom:var(--sp-3);}
+.hero .bio{color:var(--muted);font-size:1rem;max-width:52ch;margin-bottom:var(--sp-4);}
+.hero .actions{display:flex;flex-wrap:wrap;gap:var(--sp-2);margin-bottom:var(--sp-4);}
+
+.xp-global-block{margin-bottom:var(--sp-4);}
+.xp-global-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;gap:var(--sp-2);}
+.xp-global-top .name{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.xp-global-top .pct{font-family:var(--font-mono);font-size:.8rem;font-weight:600;color:var(--ink);}
+.xp-global{position:relative;height:12px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);overflow:hidden;}
+.xp-global-fill{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--xp),var(--accent));border-radius:999px;}
+.xp-global::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:repeating-linear-gradient(90deg,transparent 0 22px,rgba(0,0,0,.06) 22px 24px);
+}
+
+.quick-facts{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3);
+  border-top:1px solid var(--line);padding-top:var(--sp-3);
+}
+.quick-facts dt{font-family:var(--font-display);font-size:clamp(1.6rem,3.6vw,2.2rem);font-weight:500;line-height:1;}
+.quick-facts dd{font-size:.8rem;color:var(--muted);margin-top:6px;}
+
+.sheet-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:var(--sp-4);will-change:transform;
+}
+.sheet-card .hud-chip{margin-bottom:var(--sp-3);}
+.monogram{
+  width:64px;height:64px;border-radius:var(--r-md);
+  background:var(--ink);color:var(--paper);
+  font-family:var(--font-display);font-weight:600;font-size:1.4rem;
+  display:flex;align-items:center;justify-content:center;letter-spacing:.02em;
+  margin-bottom:var(--sp-3);
+}
+.sheet-name{font-family:var(--font-display);font-weight:600;font-size:1.1rem;}
+.sheet-role{color:var(--muted);font-size:.88rem;margin-bottom:var(--sp-3);}
+.sheet-meta{display:flex;flex-direction:column;gap:var(--sp-2);border-top:1px solid var(--line);padding-top:var(--sp-3);}
+.sheet-meta dt{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono);}
+.sheet-meta dd{font-size:.9rem;font-weight:500;}
+
+/* ---------- Attributi ---------- */
+.stat-list{display:flex;flex-direction:column;gap:var(--sp-3);max-width:680px;}
+.stat-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;gap:var(--sp-2);}
+.stat-name{font-family:var(--font-display);font-weight:500;font-size:.98rem;}
+.stat-val{font-family:var(--font-mono);font-size:.82rem;font-weight:600;color:var(--muted);}
+.stat-track{height:9px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);overflow:hidden;}
+.stat-fill{display:block;height:100%;width:0;border-radius:999px;background:var(--accent);}
+
+/* ---------- Quest log ---------- */
+.quest-list{display:flex;flex-direction:column;gap:var(--sp-2);margin-bottom:var(--sp-6);}
+.quest{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;
+  transition:border-color .2s ease;
+}
+.quest[open]{border-color:var(--accent);}
+.quest > summary{
+  list-style:none;cursor:pointer;padding:var(--sp-3);
+  display:grid;grid-template-columns:auto 1fr auto;gap:var(--sp-2) var(--sp-3);align-items:center;
+}
+.quest > summary::-webkit-details-marker{display:none;}
+.quest > summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+.quest-chevron{
+  width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  color:var(--accent);transition:transform .2s ease;
+}
+.quest[open] .quest-chevron{transform:rotate(90deg);}
+@media (prefers-reduced-motion:reduce){.quest-chevron{transition:none;}}
+.quest-main{min-width:0;}
+.quest-when{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;}
+.quest-title{font-family:var(--font-display);font-weight:600;font-size:1.02rem;margin:2px 0;}
+.quest-boss{font-size:.85rem;color:var(--muted);}
+.xp-chip{
+  font-family:var(--font-mono);font-size:.72rem;font-weight:700;letter-spacing:.04em;
+  background:var(--xp);color:#fff;padding:5px 10px;border-radius:999px;white-space:nowrap;
+}
+.quest-loot{padding:0 var(--sp-3) var(--sp-3) calc(var(--sp-3) + 22px + var(--sp-3));}
+.quest-loot .loot-label{
+  font-family:var(--font-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:var(--sp-2);display:block;
+}
+.bullets{display:flex;flex-direction:column;gap:8px;}
+.bullets li{position:relative;padding-left:18px;font-size:.92rem;color:var(--muted);}
+.bullets li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent);}
+
+.subhead{margin-bottom:var(--sp-3);color:var(--muted);font-weight:600;}
+.subhead .hud-chip{margin-right:10px;}
+.sidequest-list{display:flex;flex-direction:column;gap:var(--sp-2);max-width:760px;}
+.sidequest-list li{
+  display:grid;grid-template-columns:130px 1fr auto;gap:6px 16px;align-items:baseline;
+  font-size:.9rem;color:var(--muted);padding-bottom:var(--sp-2);border-bottom:1px solid var(--line);
+}
+.sidequest-list li .sq-when{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);}
+.sidequest-list li .sq-name{color:var(--ink);}
+.sidequest-list li .sq-name strong{font-weight:600;}
+.sidequest-list li .xp-chip{background:var(--paper-2);color:var(--ink);}
+
+/* ---------- Achievements ---------- */
+.ach-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--sp-2);margin-bottom:var(--sp-4);}
+.ach-count{font-family:var(--font-mono);font-size:.9rem;font-weight:600;}
+.ach-count .num{color:var(--accent);}
+#reveal-all{
+  background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 16px;
+  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);
+}
+#reveal-all:hover{border-color:var(--ink);}
+.achievement-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--sp-2);}
+.achievement{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;
+  transition:filter .25s ease,opacity .25s ease,border-color .2s ease;
+}
+.achievement:not(.is-unlocked){filter:grayscale(1);opacity:.66;}
+.achievement.is-unlocked{border-color:var(--accent);}
+.achievement > summary{
+  list-style:none;cursor:pointer;padding:var(--sp-3);display:flex;flex-direction:column;gap:8px;
+}
+.achievement > summary::-webkit-details-marker{display:none;}
+.achievement > summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+.trophy{
+  width:34px;height:34px;border-radius:var(--r-sm);
+  background:var(--accent-tint);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+}
+.ach-name{font-family:var(--font-display);font-weight:600;font-size:.98rem;line-height:1.25;}
+.ach-date{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em;}
+.lock-tag{
+  align-self:flex-start;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--paper-2);color:var(--muted);padding:3px 8px;border-radius:999px;
+}
+.achievement.is-unlocked .lock-tag{display:none;}
+.ach-body{padding:0 var(--sp-3) var(--sp-3);font-size:.88rem;color:var(--muted);}
+.ach-body .ach-org{color:var(--ink);font-weight:600;}
+
+/* ---------- Inventario / Skill tree ---------- */
+.inv-group{margin-bottom:var(--sp-4);}
+.inv-group > h3{margin-bottom:var(--sp-2);display:flex;align-items:center;gap:10px;}
+.inv-group > h3 .hud-chip{background:var(--paper-2);color:var(--muted);}
+.inv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:var(--sp-2);}
+.inv-slot{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--sp-3);
+  transition:border-color .2s ease,transform .2s ease;
+}
+.inv-slot:hover{border-color:var(--accent);}
+@media (prefers-reduced-motion:no-preference){.inv-slot:hover{transform:translateY(-3px);}}
+.inv-slot .inv-name{font-family:var(--font-display);font-weight:600;font-size:.95rem;}
+.inv-slot .inv-type{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-top:4px;display:block;}
+
+/* ---------- Training ---------- */
+.training-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2);}
+.training-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--sp-4);}
+.training-card .when{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);margin-bottom:var(--sp-1);}
+.training-card h3{margin-bottom:4px;}
+.training-card .place{font-size:.85rem;color:var(--muted);margin-bottom:var(--sp-3);}
+.training-score-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;}
+.training-score-head .lbl{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.training-score-head .val{font-family:var(--font-mono);font-weight:600;font-size:.82rem;color:var(--accent);}
+.training-card .track{height:8px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);overflow:hidden;margin-bottom:var(--sp-3);}
+.training-card .track .fill{display:block;height:100%;width:0;border-radius:999px;background:var(--accent);}
+.training-card p.desc{font-size:.88rem;color:var(--muted);}
+
+/* ---------- Lingue ---------- */
+.lang-list{display:flex;flex-direction:column;gap:var(--sp-3);max-width:640px;}
+.lang-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;gap:var(--sp-2);}
+.lang-name{font-family:var(--font-display);font-weight:500;}
+.lang-level{font-family:var(--font-mono);font-size:.74rem;color:var(--muted);letter-spacing:.04em;}
+.lang-track{height:8px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);overflow:hidden;}
+.lang-fill{display:block;height:100%;width:0;border-radius:999px;background:var(--accent);}
+
+/* ---------- Footer ---------- */
+footer{
+  background:var(--ink);color:var(--paper);
+  border-radius:var(--r-lg);padding:var(--sp-6) var(--sp-5);
+  margin:var(--sp-7) 0 var(--sp-4);
+}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:var(--sp-5);}
+footer h2{color:var(--paper);margin-bottom:var(--sp-2);}
+footer p{color:#cfc9ba;max-width:36ch;margin-bottom:var(--sp-3);font-size:.95rem;}
+.footer-col h3{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#cfc9ba;margin-bottom:var(--sp-2);font-weight:600;}
+.footer-col ul{display:flex;flex-direction:column;gap:10px;font-size:.92rem;}
+.footer-col a{color:var(--paper);border-bottom:1px solid transparent;transition:border-color .18s ease;}
+.footer-col a:hover{border-color:var(--paper);}
+.copyright{text-align:center;font-size:.78rem;color:var(--muted);padding-bottom:var(--sp-5);}
+
+/* ---------- Mini HUD (decorativo) ---------- */
+.mini-hud{display:none;}
+@media (min-width:900px) and (prefers-reduced-motion:no-preference){
+  .mini-hud{
+    display:flex;align-items:center;gap:10px;
+    position:fixed;left:20px;bottom:20px;z-index:50;
+    background:var(--ink);color:var(--paper);
+    font-family:var(--font-mono);font-size:.64rem;letter-spacing:.12em;
+    padding:8px 12px;border-radius:999px;
+  }
+}
+.mini-hud-track{width:70px;height:6px;border-radius:999px;background:rgba(255,255,255,.22);overflow:hidden;}
+.mini-hud-fill{display:block;height:100%;width:0;background:var(--xp);}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  .hero-grid,.training-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  main section{padding-block:var(--sp-6);}
+}
+@media (max-width:620px){
+  .wrap{padding:0 20px;}
+  .header-inner{padding:14px 20px;}
+  .quick-facts{grid-template-columns:1fr;gap:var(--sp-2);}
+  .quest > summary{grid-template-columns:auto 1fr;}
+  .quest > summary .xp-chip{grid-column:2;justify-self:start;}
+  .quest-loot{padding-left:var(--sp-3);}
+  .sidequest-list li{grid-template-columns:1fr;gap:2px;}
+  footer{padding:var(--sp-5) var(--sp-4);}
+}
+
+/* ---------- Motion: initial states (only when motion allowed) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .js-motion [data-hero],
+  .js-motion [data-reveal]{opacity:0;}
+  .js-motion [data-hero]{transform:translateY(16px);}
+  .js-motion [data-reveal]{transform:translateY(24px);}
+  .js-motion [data-stagger] > *{opacity:0;transform:translateY(16px);}
+  .js-motion [data-bar]{width:0;}
+}
+</style>
+<noscript><style>
+.js-motion [data-hero],.js-motion [data-reveal],.js-motion [data-stagger] > *{opacity:1 !important;transform:none !important;}
+.js-motion [data-bar]{width:var(--bar-final,0) !important;}
+.xp-global-fill{width:100% !important;}
+</style></noscript>
+<script>document.documentElement.classList.add('js-motion');</script>
+</head>
+<body>
+
+<a class="skip-link" href="#top">Salta al contenuto</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.html#top"><span class="dot"></span> Andrea Baldin</a>
+    <nav aria-label="Sezioni della pagina">
+      <ul>
+        <li class="nav-scroll"><a href="#scheda">Scheda</a></li>
+        <li class="nav-scroll"><a href="#attributi">Attributi</a></li>
+        <li class="nav-scroll"><a href="#quest">Quest</a></li>
+        <li class="nav-scroll"><a href="#trofei">Trofei</a></li>
+        <li class="nav-scroll"><a href="#inventario">Inventario</a></li>
+        <li class="nav-scroll"><a href="#contatti">Contatti</a></li>
+        <li><a class="nav-home" href="index.html">CV classico &#8594;</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="top">
+
+  <section id="scheda" class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="label" data-hero>Career Quest &middot; CV gamificato</p>
+        <p class="char-class" data-hero><span class="hud-chip">Classe</span> AI Product Strategist</p>
+        <h1 id="hero-title" data-hero>Andrea Baldin</h1>
+        <p class="char-level" data-hero>
+          <span class="level-badge" aria-hidden="true">5</span>
+          <span>Livello 5 <span class="muted-inline">&mdash; calcolato dagli anni di esperienza (5+)</span></span>
+        </p>
+        <p class="tagline" data-hero>Trasformo l'AI generativa in prodotti che le persone usano davvero.</p>
+        <p class="bio" data-hero>Product-minded technologist con oltre 5 anni di esperienza tra consulenza, delivery di piattaforme IT e strategia AI. Oggi guido i prodotti Copilot e Agent365 in Nestl&eacute;: dalla discovery alla produzione, oltre 100 use case di AI generativa e assistenti conversazionali portati da concept a scala.</p>
+
+        <div class="xp-global-block" data-hero>
+          <div class="xp-global-top">
+            <span class="name">Esplorazione della quest</span>
+            <span class="pct" data-mini-pct>0%</span>
+          </div>
+          <div class="xp-global" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Esplorazione della quest: si riempie scorrendo la pagina" data-xp-global-wrap>
+            <span class="xp-global-fill" data-xp-global></span>
+          </div>
+        </div>
+
+        <div class="actions" data-hero>
+          <a class="btn" href="#attributi">Inizia la quest <span class="circle" aria-hidden="true">&#8594;</span></a>
+          <a class="btn btn--ghost" href="index.html">Torna al CV classico</a>
+        </div>
+
+        <dl class="quick-facts" data-hero>
+          <div><dt data-count="8800">8.800</dt><dd>XP totali accumulati</dd></div>
+          <div><dt data-count="8">8</dt><dd>Quest nel log</dd></div>
+          <div><dt data-count="8">8</dt><dd>Achievement da sbloccare</dd></div>
+        </dl>
+      </div>
+
+      <aside class="sheet-card" data-hero data-parallax aria-label="Scheda personaggio">
+        <span class="hud-chip">Scheda personaggio</span>
+        <div class="monogram" aria-hidden="true">AB</div>
+        <p class="sheet-name">Andrea Baldin</p>
+        <p class="sheet-role">Tech Expert &mdash; Conversation AI &amp; M365 Copilot</p>
+        <dl class="sheet-meta">
+          <div><dt>Gilda</dt><dd>Nestl&eacute; &mdash; Milano</dd></div>
+          <div><dt>Missione attuale</dt><dd>Microsoft Copilot &amp; Agent365</dd></div>
+          <div><dt>Lingue di potere</dt><dd>Inglese C1 &middot; Spagnolo C1</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section id="attributi" aria-labelledby="attributi-title">
+    <div class="section-head" data-reveal>
+      <p class="label">Attributi</p>
+      <h2 id="attributi-title">Statistiche del personaggio</h2>
+      <p class="sub">Valori derivati dalle competenze chiave del CV: tutti alti, differenziati per profondit&agrave; d'uso e anzianit&agrave;.</p>
+    </div>
+    <ul class="stat-list" data-stagger>
+      <li>
+        <div class="stat-head"><span class="stat-name">GenAI / LLM Integration</span><span class="stat-val" data-count="95" data-suffix=" / 100">95 / 100</span></div>
+        <div class="stat-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95" aria-label="GenAI / LLM Integration"><span class="stat-fill" data-bar="95%" style="--bar-final:95%"></span></div>
+      </li>
+      <li>
+        <div class="stat-head"><span class="stat-name">Product Strategy &amp; Roadmapping</span><span class="stat-val" data-count="92" data-suffix=" / 100">92 / 100</span></div>
+        <div class="stat-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="92" aria-label="Product Strategy e Roadmapping"><span class="stat-fill" data-bar="92%" style="--bar-final:92%"></span></div>
+      </li>
+      <li>
+        <div class="stat-head"><span class="stat-name">0&rarr;1 Delivery</span><span class="stat-val" data-count="90" data-suffix=" / 100">90 / 100</span></div>
+        <div class="stat-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" aria-label="Delivery da zero a uno"><span class="stat-fill" data-bar="90%" style="--bar-final:90%"></span></div>
+      </li>
+      <li>
+        <div class="stat-head"><span class="stat-name">Stakeholder &amp; C-level Communication</span><span class="stat-val" data-count="90" data-suffix=" / 100">90 / 100</span></div>
+        <div class="stat-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" aria-label="Comunicazione con stakeholder e C-level"><span class="stat-fill" data-bar="90%" style="--bar-final:90%"></span></div>
+      </li>
+      <li>
+        <div class="stat-head"><span class="stat-name">Cross-functional Leadership</span><span class="stat-val" data-count="88" data-suffix=" / 100">88 / 100</span></div>
+        <div class="stat-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88" aria-label="Leadership cross-funzionale"><span class="stat-fill" data-bar="88%" style="--bar-final:88%"></span></div>
+      </li>
+      <li>
+        <div class="stat-head"><span class="stat-name">Data Analytics</span><span class="stat-val" data-count="82" data-suffix=" / 100">82 / 100</span></div>
+        <div class="stat-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="82" aria-label="Data Analytics"><span class="stat-fill" data-bar="82%" style="--bar-final:82%"></span></div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="quest" aria-labelledby="quest-title">
+    <div class="section-head" data-reveal>
+      <p class="label">Quest log</p>
+      <h2 id="quest-title">Il percorso, quest per quest</h2>
+      <p class="sub">Ogni esperienza del CV &egrave; una quest completata. Apri una quest per vedere il <em>loot</em>: i risultati ottenuti. La ricompensa in XP &egrave; proporzionale a durata e impatto.</p>
+    </div>
+
+    <div class="quest-list">
+
+      <details class="quest" open>
+        <summary>
+          <span class="quest-chevron" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2l4 4-4 4"/></svg>
+          </span>
+          <span class="quest-main">
+            <span class="quest-when">Gen 2025 &ndash; Oggi</span>
+            <span class="quest-title">Tech Expert &mdash; Conversation AI &amp; M365 Copilot</span>
+            <span class="quest-boss">Boss / luogo: Nestl&eacute; &mdash; Milano &middot; in precedenza Tech Expert &mdash; Artificial Intelligence</span>
+          </span>
+          <span class="xp-chip">+2400 XP</span>
+        </summary>
+        <div class="quest-loot">
+          <span class="loot-label">Loot &mdash; risultati</span>
+          <ul class="bullets">
+            <li>Ownership di Agent365 e Microsoft Copilot Chat: strategia di prodotto, roadmap e adoption a livello di organizzazione.</li>
+            <li>Ownership di strategia, roadmap e sviluppo end-to-end degli assistenti conversazionali AI, con oltre 100 use case dal concept (0&rarr;1) alla produzione.</li>
+            <li>Riferimento tecnico per lo stack Microsoft Conversational AI: design ed evoluzione delle esperienze conversazionali basate su tecnologie AI Microsoft.</li>
+            <li>Collaborazione cross-funzionale con engineering, data e business per definire requisiti e integrare capability GenAI/LLM nei workflow esistenti.</li>
+            <li>Definizione di metriche e reporting su adoption e impatto, con presentazioni a stakeholder interni ed esterni, incluso il C-level.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="quest">
+        <summary>
+          <span class="quest-chevron" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2l4 4-4 4"/></svg>
+          </span>
+          <span class="quest-main">
+            <span class="quest-when">Lug 2023 &ndash; Gen 2025</span>
+            <span class="quest-title">IT ServiceNow Business Analyst</span>
+            <span class="quest-boss">Boss / luogo: Nestl&eacute; &mdash; Milano</span>
+          </span>
+          <span class="xp-chip">+1600 XP</span>
+        </summary>
+        <div class="quest-loot">
+          <span class="loot-label">Loot &mdash; risultati</span>
+          <ul class="bullets">
+            <li>Definizione di obiettivi, milestone e delivery plan per iniziative di data analytics su piattaforme HR e ITSM, coprendo oltre 50 storie end-to-end.</li>
+            <li>Monitoraggio di avanzamento, tempi e standard qualitativi; linee guida di best practice che hanno migliorato contenuti di piattaforma e accuratezza del reporting.</li>
+            <li>Facilitazione della definizione della soluzione tecnica in ServiceNow, allineando requisiti di business e necessit&agrave; di data &amp; analytics e gestendo il rischio in modo proattivo.</li>
+            <li>Allineamento degli stakeholder tramite dashboard Power BI e presentazioni executive per comunicare insight complessi in modo chiaro.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="quest">
+        <summary>
+          <span class="quest-chevron" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2l4 4-4 4"/></svg>
+          </span>
+          <span class="quest-main">
+            <span class="quest-when">Feb 2021 &ndash; Lug 2023</span>
+            <span class="quest-title">Cloud Transformation &amp; Architecture Consultant</span>
+            <span class="quest-boss">Boss / luogo: Accenture &mdash; Milano</span>
+          </span>
+          <span class="xp-chip">+2400 XP</span>
+        </summary>
+        <div class="quest-loot">
+          <span class="loot-label">Loot &mdash; risultati</span>
+          <ul class="bullets">
+            <li>Raccolta e analisi dei requisiti cliente per evolvere una piattaforma di Project Management (CSM, ITSM, CMDB, App Engine), traducendo esigenze di business in requisiti tecnici.</li>
+            <li>Re-ingegnerizzazione di software legacy per la stima delle change request, con tecniche di data transformation e modeling su oltre 150k&euro; di valore progetti e pi&ugrave; di 75 processi migrati a ServiceNow.</li>
+            <li>Analisi e visualizzazioni data-driven a supporto delle decisioni del cliente su investimenti in piattaforma e processi.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="quest">
+        <summary>
+          <span class="quest-chevron" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2l4 4-4 4"/></svg>
+          </span>
+          <span class="quest-main">
+            <span class="quest-when">Lug 2020 &ndash; Feb 2021</span>
+            <span class="quest-title">Business Consultant</span>
+            <span class="quest-boss">Boss / luogo: DXC Technology &mdash; Milano</span>
+          </span>
+          <span class="xp-chip">+700 XP</span>
+        </summary>
+        <div class="quest-loot">
+          <span class="loot-label">Loot &mdash; risultati</span>
+          <ul class="bullets">
+            <li>Raccolta e traduzione dei requisiti cliente in soluzioni di IT Service Management, con stretto allineamento alle esigenze di business.</li>
+            <li>Produzione di documentazione tecnica e sessioni di formazione da remoto, comunicando concetti tecnici complessi a stakeholder non tecnici.</li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
+
+    <h3 class="subhead" data-reveal><span class="hud-chip hud-chip--ghost">Side quest</span> Prima del 2020</h3>
+    <ul class="sidequest-list" data-stagger>
+      <li><span class="sq-when">Mar 2020 &ndash; Giu 2020</span><span class="sq-name"><strong>Technology Solution Intern</strong> &middot; Ernst &amp; Young &middot; Milano (IT)</span><span class="xp-chip">+200 XP</span></li>
+      <li><span class="sq-when">Giu 2019 &ndash; Dic 2019</span><span class="sq-name"><strong>Project Engineer</strong> &middot; Lombardi Engineering &middot; Locarno (CH)</span><span class="xp-chip">+250 XP</span></li>
+      <li><span class="sq-when">Set 2018 &ndash; Feb 2019</span><span class="sq-name"><strong>Erasmus</strong> &middot; Universidad Polit&eacute;cnica de Madrid (UPM) &middot; Madrid (ES)</span><span class="xp-chip">+200 XP</span></li>
+      <li><span class="sq-when">Mar 2017 &ndash; Lug 2017</span><span class="sq-name"><strong>Research Internship</strong> &middot; &Eacute;cole Polytechnique F&eacute;d&eacute;rale de Lausanne (EPFL) &middot; Losanna (CH)</span><span class="xp-chip">+250 XP</span></li>
+    </ul>
+  </section>
+
+  <section id="trofei" aria-labelledby="trofei-title">
+    <div class="section-head" data-reveal>
+      <p class="label">Achievement</p>
+      <h2 id="trofei-title">Trofei &amp; riconoscimenti</h2>
+      <p class="sub">8 achievement dal CV. Aprine uno per sbloccarlo e vedere ente e data. I trofei sbloccati restano salvati sul tuo dispositivo.</p>
+    </div>
+
+    <div class="ach-bar" data-reveal>
+      <p class="ach-count" id="ach-count" aria-live="polite"><span class="num">8</span> / 8 achievement sbloccati</p>
+      <button type="button" id="reveal-all" hidden>Sblocca tutti</button>
+    </div>
+
+    <div class="achievement-grid" data-stagger>
+
+      <details class="achievement" data-ach="itil" open>
+        <summary>
+          <span class="trophy" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span>
+          <span class="ach-name">ITIL Foundation V5</span>
+          <span class="ach-date">Apr 2026</span>
+          <span class="lock-tag">Bloccato</span>
+        </summary>
+        <p class="ach-body"><span class="ach-org">PeopleCert</span> &middot; Certificazione</p>
+      </details>
+
+      <details class="achievement" data-ach="cio-award" open>
+        <summary>
+          <span class="trophy" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span>
+          <span class="ach-name">CIO Award</span>
+          <span class="ach-date">Dic 2025</span>
+          <span class="lock-tag">Bloccato</span>
+        </summary>
+        <p class="ach-body"><span class="ach-org">Nestl&eacute;</span> &middot; Premio interno</p>
+      </details>
+
+      <details class="achievement" data-ach="csm-suite" open>
+        <summary>
+          <span class="trophy" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span>
+          <span class="ach-name">CSM Suite Professional</span>
+          <span class="ach-date">Giu 2025</span>
+          <span class="lock-tag">Bloccato</span>
+        </summary>
+        <p class="ach-body"><span class="ach-org">ServiceNow</span> &middot; Certificazione</p>
+      </details>
+
+      <details class="achievement" data-ach="mckinsey-forward" open>
+        <summary>
+          <span class="trophy" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span>
+          <span class="ach-name">McKinsey Forward Program</span>
+          <span class="ach-date">Lug 2024</span>
+          <span class="lock-tag">Bloccato</span>
+        </summary>
+        <p class="ach-body"><span class="ach-org">McKinsey</span> &middot; Programma di sviluppo</p>
+      </details>
+
+      <details class="achievement" data-ach="techstar-2023" open>
+        <summary>
+          <span class="trophy" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span>
+          <span class="ach-name">TechStar 2023</span>
+          <span class="ach-date">Gen 2023</span>
+          <span class="lock-tag">Bloccato</span>
+        </summary>
+        <p class="ach-body"><span class="ach-org">Accenture</span> &middot; Riconoscimento interno</p>
+      </details>
+
+      <details class="achievement" data-ach="nova-talent" open>
+        <summary>
+          <span class="trophy" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span>
+          <span class="ach-name">Nova Talent Member</span>
+          <span class="ach-date">Lug 2022</span>
+          <span class="lock-tag">Bloccato</span>
+        </summary>
+        <p class="ach-body"><span class="ach-org">Nova Talent</span> &middot; Membership selettiva</p>
+      </details>
+
+      <details class="achievement" data-ach="cis-csm" open>
+        <summary>
+          <span class="trophy" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span>
+          <span class="ach-name">Certified Implementation Specialist &mdash; CSM</span>
+          <span class="ach-date">Mar 2022</span>
+          <span class="lock-tag">Bloccato</span>
+        </summary>
+        <p class="ach-body"><span class="ach-org">ServiceNow</span> &middot; Certificazione</p>
+      </details>
+
+      <details class="achievement" data-ach="csa" open>
+        <summary>
+          <span class="trophy" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span>
+          <span class="ach-name">Certified System Administrator</span>
+          <span class="ach-date">Ott 2020</span>
+          <span class="lock-tag">Bloccato</span>
+        </summary>
+        <p class="ach-body"><span class="ach-org">ServiceNow</span> &middot; Certificazione</p>
+      </details>
+
+    </div>
+  </section>
+
+  <section id="inventario" aria-labelledby="inventario-title">
+    <div class="section-head" data-reveal>
+      <p class="label">Inventario</p>
+      <h2 id="inventario-title">Skill tree &amp; equipaggiamento</h2>
+      <p class="sub">La toolbox del CV come inventario del personaggio, divisa per ramo dell'albero abilit&agrave;.</p>
+    </div>
+
+    <div class="inv-group" data-reveal>
+      <h3><span class="hud-chip">Ramo 1</span> Stack AI &amp; Conversational</h3>
+      <ul class="inv-grid" data-stagger>
+        <li class="inv-slot"><span class="inv-name">Microsoft Conversational AI</span><span class="inv-type">Stack conversational AI</span></li>
+        <li class="inv-slot"><span class="inv-name">Microsoft Copilot</span><span class="inv-type">M365 Copilot</span></li>
+        <li class="inv-slot"><span class="inv-name">Agent365</span><span class="inv-type">Agenti AI</span></li>
+      </ul>
+    </div>
+
+    <div class="inv-group" data-reveal>
+      <h3><span class="hud-chip">Ramo 2</span> Piattaforme &amp; Business Intelligence</h3>
+      <ul class="inv-grid" data-stagger>
+        <li class="inv-slot"><span class="inv-name">ServiceNow</span><span class="inv-type">Piattaforma ITSM / CSM</span></li>
+        <li class="inv-slot"><span class="inv-name">Power BI</span><span class="inv-type">Analytics &amp; reporting</span></li>
+        <li class="inv-slot"><span class="inv-name">Excel</span><span class="inv-type">Analisi dati</span></li>
+      </ul>
+    </div>
+
+    <div class="inv-group" data-reveal>
+      <h3><span class="hud-chip">Ramo 3</span> Linguaggi &amp; scripting</h3>
+      <ul class="inv-grid" data-stagger>
+        <li class="inv-slot"><span class="inv-name">JavaScript</span><span class="inv-type">Scripting</span></li>
+        <li class="inv-slot"><span class="inv-name">C++</span><span class="inv-type">Programmazione</span></li>
+        <li class="inv-slot"><span class="inv-name">VBA</span><span class="inv-type">Automazione</span></li>
+        <li class="inv-slot"><span class="inv-name">MATLAB</span><span class="inv-type">Calcolo numerico</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="training" aria-labelledby="training-title">
+    <div class="section-head" data-reveal>
+      <p class="label">Background</p>
+      <h2 id="training-title">Training accademico</h2>
+      <p class="sub">Le fondamenta del personaggio, con punteggio finale espresso come nel CV.</p>
+    </div>
+    <div class="training-grid" data-stagger>
+      <article class="training-card">
+        <p class="when">Set 2017 &ndash; Apr 2020</p>
+        <h3>M.Sc. Civil Engineering &mdash; Master in Hydraulics</h3>
+        <p class="place">Politecnico di Milano</p>
+        <div class="training-score-head"><span class="lbl">Punteggio finale</span><span class="val">109 / 110</span></div>
+        <div class="track" role="progressbar" aria-valuemin="0" aria-valuemax="110" aria-valuenow="109" aria-label="Punteggio M.Sc. Politecnico di Milano: 109 su 110"><span class="fill" data-bar="99%" style="--bar-final:99%"></span></div>
+        <p class="desc">Modellazione di sistemi idraulici e fluidodinamica con forte focus su analisi data-driven, simulazione e decisioni quantitative. Metodi statistici e strumenti di calcolo e programmazione (MATLAB, VBA) per analizzare grandi dataset e costruire modelli predittivi. Tesi sulla stima del Sediment Yield per dighe.</p>
+      </article>
+      <article class="training-card">
+        <p class="when">Ott 2013 &ndash; Mar 2017</p>
+        <h3>B.Sc. Civil and Environmental Engineering</h3>
+        <p class="place">Universit&agrave; degli Studi di Padova</p>
+        <div class="training-score-head"><span class="lbl">Punteggio finale</span><span class="val">102 / 110</span></div>
+        <div class="track" role="progressbar" aria-valuemin="0" aria-valuemax="110" aria-valuenow="102" aria-label="Punteggio B.Sc. Universit&agrave; di Padova: 102 su 110"><span class="fill" data-bar="93%" style="--bar-final:93%"></span></div>
+        <p class="desc">Approccio rigoroso e strutturato all'analisi quantitativa e al problem solving; fondamenti di matematica, fisica e ingegneria. Excel e metodi analitici a supporto dei calcoli e dell'interpretazione dei risultati.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="lingue" aria-labelledby="lingue-title">
+    <div class="section-head" data-reveal>
+      <p class="label">Lingue</p>
+      <h2 id="lingue-title">Language proficiency</h2>
+    </div>
+    <ul class="lang-list" data-stagger>
+      <li>
+        <div class="lang-row"><span class="lang-name">Italiano</span><span class="lang-level">LVL MAX &middot; Madrelingua</span></div>
+        <div class="lang-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="Italiano: madrelingua"><span class="lang-fill" data-bar="100%" style="--bar-final:100%"></span></div>
+      </li>
+      <li>
+        <div class="lang-row"><span class="lang-name">Inglese</span><span class="lang-level">LVL C1 &middot; Fluente certificato</span></div>
+        <div class="lang-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88" aria-label="Inglese: C1 certificato"><span class="lang-fill" data-bar="88%" style="--bar-final:88%"></span></div>
+      </li>
+      <li>
+        <div class="lang-row"><span class="lang-name">Spagnolo</span><span class="lang-level">LVL C1 &middot; Fluente certificato</span></div>
+        <div class="lang-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88" aria-label="Spagnolo: C1 certificato"><span class="lang-fill" data-bar="88%" style="--bar-final:88%"></span></div>
+      </li>
+      <li>
+        <div class="lang-row"><span class="lang-name">Francese</span><span class="lang-level">LVL 1 &middot; Base</span></div>
+        <div class="lang-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35" aria-label="Francese: base"><span class="lang-fill" data-bar="35%" style="--bar-final:35%"></span></div>
+      </li>
+      <li>
+        <div class="lang-row"><span class="lang-name">Giapponese</span><span class="lang-level">LVL 1 &middot; Base</span></div>
+        <div class="lang-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="22" aria-label="Giapponese: base"><span class="lang-fill" data-bar="22%" style="--bar-final:22%"></span></div>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer id="contatti" aria-labelledby="contatti-title">
+  <div class="footer-grid">
+    <div data-reveal>
+      <h2 id="contatti-title">Recluta Andrea per la tua party</h2>
+      <p>Mi interessa confrontarmi su strategia di prodotto AI, GenAI applicata ai workflow e analytics. Scrivimi: rispondo volentieri.</p>
+      <a class="btn btn--light" href="mailto:andrea.baldin95@gmail.com">Invia un messaggio <span class="circle" aria-hidden="true">&#8594;</span></a>
+    </div>
+    <div class="footer-col" data-reveal>
+      <h3>Contatti</h3>
+      <ul>
+        <li><a href="mailto:andrea.baldin95@gmail.com">andrea.baldin95@gmail.com</a></li>
+        <li>Milano, Italia</li>
+      </ul>
+    </div>
+    <div class="footer-col" data-reveal>
+      <h3>Link</h3>
+      <ul>
+        <li><a href="index.html">CV classico</a></li>
+        <li><a href="https://github.com/BaldoAB1995" target="_blank" rel="noopener">GitHub</a></li>
+        <!-- TODO: sostituire con l'URL del profilo LinkedIn reale -->
+        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<p class="copyright">&copy; 2026 Andrea Baldin &mdash; Career Quest, versione gamificata del CV</p>
+
+</div>
+
+<div class="mini-hud" data-mini-hud aria-hidden="true">
+  <span>LVL 5</span>
+  <span class="mini-hud-track"><span class="mini-hud-fill" data-mini-fill></span></span>
+  <span data-mini-pct-hud>0%</span>
+</div>
+
+<script type="module">
+/* Career Quest — progressive enhancement.
+   Achievements + XP di scroll funzionano senza Motion.
+   Animazioni con Motion (motion.dev), stesso pattern di index.html:
+   failSafe timeout, finalState(), nessun import con prefers-reduced-motion. */
+
+const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const q = (s) => Array.from(document.querySelectorAll(s));
+const fmt = (n) => Math.round(n).toLocaleString('it-IT');
+
+/* ---------- Achievements: sblocco + persistenza (localStorage, con try/catch) ---------- */
+const ACH_KEY = 'careerquest:achievements:v1';
+const achEls = q('[data-ach]');
+const countEl = document.getElementById('ach-count');
+const revealAllBtn = document.getElementById('reveal-all');
+
+function loadUnlocked(){
+  try { return new Set(JSON.parse(localStorage.getItem(ACH_KEY) || '[]')); }
+  catch (_) { return new Set(); }
+}
+function saveUnlocked(set){
+  try { localStorage.setItem(ACH_KEY, JSON.stringify(Array.from(set))); }
+  catch (_) { /* storage non disponibile: si degrada senza errori */ }
+}
+function refreshCount(n){
+  if (!countEl) return;
+  countEl.innerHTML = '<span class="num">' + n + '</span> / ' + achEls.length + ' achievement sbloccati';
+}
+
+const unlocked = loadUnlocked();
+
+achEls.forEach((el) => {
+  const id = el.dataset.ach;
+  // Parte "bloccato" a meno che non sia gia stato aperto in passato.
+  if (unlocked.has(id)) { el.classList.add('is-unlocked'); el.open = true; }
+  else { el.open = false; }
+
+  el.addEventListener('toggle', () => {
+    if (el.open && !unlocked.has(id)) {
+      unlocked.add(id);
+      el.classList.add('is-unlocked');
+      saveUnlocked(unlocked);
+      refreshCount(unlocked.size);
+    }
+  });
+});
+refreshCount(unlocked.size);
+
+if (revealAllBtn) {
+  revealAllBtn.hidden = false;
+  revealAllBtn.addEventListener('click', () => {
+    achEls.forEach((el) => {
+      el.open = true;
+      el.classList.add('is-unlocked');
+      unlocked.add(el.dataset.ach);
+    });
+    saveUnlocked(unlocked);
+    refreshCount(unlocked.size);
+  });
+}
+
+/* ---------- Barra XP globale legata allo scroll (indipendente da Motion) ---------- */
+const xpFill = document.querySelector('[data-xp-global]');
+const xpWrap = document.querySelector('[data-xp-global-wrap]');
+const xpPct  = document.querySelector('[data-mini-pct]');
+const miniFill = document.querySelector('[data-mini-fill]');
+const miniPctHud = document.querySelector('[data-mini-pct-hud]');
+
+function updateScrollXP(){
+  const doc = document.documentElement;
+  const max = doc.scrollHeight - doc.clientHeight;
+  const p = max > 0 ? Math.min(1, Math.max(0, doc.scrollTop / max)) : 1;
+  const pct = Math.round(p * 100);
+  if (xpFill) xpFill.style.width = pct + '%';
+  if (xpWrap) xpWrap.setAttribute('aria-valuenow', String(pct));
+  if (xpPct) xpPct.textContent = pct + '%';
+  if (miniFill) miniFill.style.width = pct + '%';
+  if (miniPctHud) miniPctHud.textContent = pct + '%';
+}
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => { updateScrollXP(); ticking = false; });
+}, { passive: true });
+window.addEventListener('resize', updateScrollXP, { passive: true });
+updateScrollXP();
+
+/* ---------- Stato finale (reduced-motion o fallback) ---------- */
+function finalState(){
+  q('[data-hero],[data-reveal]').forEach((el) => { el.style.opacity = '1'; el.style.transform = 'none'; });
+  q('[data-stagger]').forEach((el) => Array.from(el.children).forEach((c) => { c.style.opacity = '1'; c.style.transform = 'none'; }));
+  q('[data-bar]').forEach((el) => { el.style.width = el.dataset.bar; });
+  q('[data-count]').forEach((el) => { el.textContent = fmt(parseFloat(el.dataset.count)) + (el.dataset.suffix || ''); });
+}
+
+if (RM) {
+  finalState();
+} else {
+  let loaded = false;
+  const failSafe = setTimeout(() => { if (!loaded) finalState(); }, 3500);
+
+  import('https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm')
+    .then(({ animate, inView, scroll, stagger }) => {
+      loaded = true;
+      clearTimeout(failSafe);
+      const EASE = [0.22, 1, 0.36, 1];
+
+      /* Hero: entrata scaglionata al load */
+      const hero = q('[data-hero]');
+      if (hero.length) {
+        animate(hero,
+          { opacity: [0, 1], transform: ['translateY(16px)', 'translateY(0)'] },
+          { duration: 0.6, delay: stagger(0.08), ease: EASE });
+      }
+
+      /* Reveal on-scroll (una sola volta) */
+      q('[data-reveal]').forEach((el) => {
+        const stop = inView(el, () => {
+          animate(el,
+            { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0)'] },
+            { duration: 0.55, ease: EASE });
+          if (stop) stop();
+        }, { amount: 0.2 });
+      });
+
+      /* Liste/griglie: reveal scaglionato dei figli (una sola volta) */
+      q('[data-stagger]').forEach((el) => {
+        const stop = inView(el, () => {
+          animate(Array.from(el.children),
+            { opacity: [0, 1], transform: ['translateY(16px)', 'translateY(0)'] },
+            { duration: 0.5, delay: stagger(0.06), ease: EASE });
+          if (stop) stop();
+        }, { amount: 0.12 });
+      });
+
+      /* Barre (attributi, training, lingue): riempimento all'ingresso */
+      q('[data-bar]').forEach((el) => {
+        const stop = inView(el, () => {
+          animate(el, { width: ['0%', el.dataset.bar] }, { duration: 0.9, ease: EASE });
+          if (stop) stop();
+        }, { amount: 0.8 });
+      });
+
+      /* Contatori XP / numerici */
+      q('[data-count]').forEach((el) => {
+        const to = parseFloat(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        const stop = inView(el, () => {
+          animate(0, to, {
+            duration: 1.2,
+            ease: EASE,
+            onUpdate: (v) => { el.textContent = fmt(v) + suffix; }
+          });
+          if (stop) stop();
+        }, { amount: 0.8 });
+      });
+
+      /* Barra di avanzamento sottile in cima alla pagina */
+      const topBar = document.querySelector('.scroll-progress');
+      if (topBar && typeof scroll === 'function') {
+        scroll(animate(topBar, { transform: ['scaleX(0)', 'scaleX(1)'] }, { ease: 'linear' }));
+      }
+
+      /* Parallax leggero sulla scheda personaggio (solo puntatori precisi) */
+      if (window.matchMedia('(pointer: fine)').matches) {
+        const card = document.querySelector('[data-parallax]');
+        if (card) {
+          window.addEventListener('pointermove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 6;
+            const y = (e.clientY / window.innerHeight - 0.5) * 6;
+            animate(card, { transform: `translate(${x}px, ${y}px)` }, { duration: 0.6, ease: 'easeOut' });
+          }, { passive: true });
+        }
+      }
+    })
+    .catch(() => { clearTimeout(failSafe); finalState(); });
+}
+</script>
+</body>
+</html>
